@@ -12,9 +12,11 @@ build:
 	git push --force -u origin gh-pages
 
 init:
+	@rm -rf /tmp/gh-pages
 	@mkdir -p /tmp/gh-pages
 	@git worktree prune || true
-	@git branch gh-pages || true
+	@git branch -D gh-pages || true
+	@git branch    gh-pages || true
 	@git worktree add /tmp/gh-pages || true
 	@echo 'finish'
 
