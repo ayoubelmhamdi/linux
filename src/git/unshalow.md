@@ -1,0 +1,4 @@
+
+```shell
+$ git fetch --unshallow
+```

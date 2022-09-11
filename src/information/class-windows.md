@@ -1,0 +1,4 @@
+
+```bash
+xprop | grep 'CLASS'
+```

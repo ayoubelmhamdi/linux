@@ -1,0 +1,11 @@
+[book]
+authors = ["Ayoub EL Mhamdi"]
+title = "Ayoub docs"
+language = "en"
+
+[build]
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/ayoubelmhamdi/ayoubelmhamdi.github.io"
+edit-url-template = "https://github.com/ayoubelmhamdi/ayoubelmhamdi.github.io/tree/master/{path}"
