@@ -16,7 +16,7 @@ init:
 	@mkdir -p /tmp/gh-pages
 	@git worktree prune || true
 	@git branch -D gh-pages || true
-	@git branch    gh-pages || true
+	@git branch gh-pages || true
 	@git worktree add /tmp/gh-pages || true
 	@echo 'finish'
 
