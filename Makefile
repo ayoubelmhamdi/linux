@@ -1,24 +1,11 @@
-.ONESHELL: # Applies to every targets in the file!
-.SHELLFLAGS += -e
-
+REPO:=$(shell git rev-parse --show-toplevel)/gh-pages	
 build:
-	mdbook build
-	rm -rf /tmp/gh-pages/*
-	cp -rf ./book/html/* /tmp/gh-pages/
-	cd /tmp/gh-pages/
-	git update-ref -d refs/heads/gh-pages
-	git add .
-	git commit -m "expected: one commit"
-	git push --force -u origin gh-pages
-
-init:
-	@rm -rf /tmp/gh-pages
-	@mkdir -p /tmp/gh-pages
-	@git worktree prune || true
-	@git branch -D gh-pages || true
-	@git branch gh-pages || true
-	@git worktree add /tmp/gh-pages || true
-	@echo 'finish'
+	@echo "run gh-pages"
+	@gh-pages
+	@echo "Done"
 
 clean:
-	rm -rf book
+	@rm -rf $(REPO)
+	@git worktree prune 2>/dev/null || true
+	@git worktree remove $(REPO) --force 2>/dev/null || true
+	@echo "clean is Done"
