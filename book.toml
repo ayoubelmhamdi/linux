@@ -1,11 +1,18 @@
 [book]
 authors = ["Ayoub EL Mhamdi"]
-title = "Ayoub docs"
+title = "Linux docs"
 language = "en"
 
 [build]
 create-missing = false
 
 [output.html]
-git-repository-url = "https://github.com/ayoubelmhamdi/ayoubelmhamdi.github.io"
-edit-url-template = "https://github.com/ayoubelmhamdi/ayoubelmhamdi.github.io/tree/master/{path}"
+site-url = "/linux/"
+no-section-label = false
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/ayoubelmhamdi/linux"
+edit-url-template = "https://github.com/ayoubelmhamdi/linux/tree/master/{path}"
+
+[output.katex]
+[preprocessor.katex]
