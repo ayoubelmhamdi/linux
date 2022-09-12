@@ -1,5 +1,5 @@
 # Summary
-[Introduction](README.md)
+[Introduction](./README.md)
 # Table of content
 - [Linux](./README.md)
     - [Driver](./driver.md)
@@ -11,7 +11,7 @@
         - [apt](./ubuntu/apt.md)
     - [Arch](./arch/README.md)
         - [Install Arch](./arch/arch-scratch.md)
-    - [Void Linux](README.md)
+    - [Void Linux](./void/README.md)
         - [Gpu](./void/gpu.md)
 #
 ---
