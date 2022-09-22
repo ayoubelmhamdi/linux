@@ -45,12 +45,13 @@
 #
 ---
 - [SETTING](./setting/README.md)
+    - [Wifi](./setting/wifi.md)
     - [Brightness](./setting/brightness.md)
     - [Gtk](./setting/gtk.md)
     - [Swapfile](./setting/swapfile.md)
     - [PS1](./setting/PS1.md)
     - [Mount](./setting/mount.md)
-    - [Keybroad](./setting/keybroad.md)
+    - [Keybroard](./setting/keybroard.md)
     - [Sleep and Hibernation](./setting/sleep.md)
     - [Wayland](./setting/wayland.md)
 #
