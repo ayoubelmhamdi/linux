@@ -1,13 +1,26 @@
 # install all pkg from file
+-------------------------
+
 ```bash
-$ pacman -Syy $(cat pacman.txt | sed '/^#/d' | tr '\n' ' '
+pacman -Syy $(cat pacman.txt | sed '/^#/d' | tr '\n' ' ')
 ```
 
-# user
-# time_ctl
-
-# extra
+### create user
+```bash
+# TODO
 ```
-$ pkgfile --update
-$ 
+
+### set time
+```bash
+# TODO
+```
+
+### networking
+```bash
+# TODO
+```
+
+### search for some files offline fro any pkgs
+```bash
+pkgfile --update
 ```
