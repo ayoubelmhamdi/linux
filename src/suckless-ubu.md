@@ -12,5 +12,5 @@ sudo apt install xorg
 
 ### Dependencies needed for compile dwm in `Ubuntu linux` from scratch is:
 ```
-sudo apt install xorg alsa build-essential libx11-dev libxinerama-dev libxft-dev git wget --no-install-recommends
+sudo apt install build-essential libx11-dev libxinerama-dev libxft-dev
 ```
