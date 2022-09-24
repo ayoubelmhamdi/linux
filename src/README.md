@@ -8,15 +8,15 @@
 
 ### install module pf perl
 ```bash
-export PERL5LIB="$HOME/.cpan/build:$PERL5LIB"
+export PERL5LIB="\$HOME/.cpan/build:\$PERL5LIB"
 cpan YAML/Tiny.pm
 ```
 
 ### ckeck process if runin
 ```bash
-$ pgrep nvim
-$ ps -C nginx
-$ ps aux | grep "nvim" | awk ' $11 == "nvim" {print $11}'
+pgrep nvim
+ps -C nginx
+ps aux | grep "nvim" | awk ' $11 == "nvim" {print $11}'
 ```
 
 - conddtion
@@ -30,9 +30,9 @@ fi
 ```
 ### calcule: sha hash
 ```bash
-$ xbps-install -Sy coreutils
-$ sha1sum
-$ sha256sum
+xbps-install -Sy coreutils
+sha1sum
+sha256sum
 ```
 
 ### fix greedy
