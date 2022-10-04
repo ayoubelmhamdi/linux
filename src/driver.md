@@ -47,3 +47,18 @@ lsusb -t
 inxi -Fxxxz
 ```
 
+# remove (uninstall/block) driver
+```bash
+blacklist nouveau
+op
+```
+```bash
+xbps-reconfigure -f linux5.19
+```
+
+### remove extra dkms modules
+```bash
+dkms status
+sudo dkms remove v4l2loopback/0.12.5 --all
+xbps-reconfigure -f linux5.19
+```
