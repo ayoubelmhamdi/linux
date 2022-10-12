@@ -25,6 +25,6 @@ options snd_hda_intel index=1
 # unmout all, But danger
 ```bash
 \$ amixer scontrols | grep -oE "'.*'" | awk -F\' \
-    '{print "amixer -c 0 set \""$2"\" unmute 100"}' >> ~/speaker.txt
+    '{print "amixer -c 0 set \""\$2"\" unmute 100"}' >> ~/speaker.txt
 ```
 

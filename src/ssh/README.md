@@ -12,7 +12,7 @@
     - in linux: remove old lines from `~/.ssh/known_hosts` like: `github.com ssh-ed25519 AAAAC3NzaC1lZ` 
 
 ```bash
-$ cat ~/.ssh/id_rsa.pub |
+\$ cat ~/.ssh/id_rsa.pub |
     ssh 192.168.43.1 -p 2222 "cat >> /storage/emulated/0/.ssh/authorized_keys"
 ```
 

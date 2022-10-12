@@ -16,7 +16,7 @@ cpan YAML/Tiny.pm
 ```bash
 pgrep nvim
 ps -C nginx
-ps aux | grep "nvim" | awk ' $11 == "nvim" {print $11}'
+ps aux | grep "nvim" | awk ' \$11 == "nvim" {print \$11}'
 ```
 
 - conddtion

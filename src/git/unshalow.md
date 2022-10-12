@@ -1,4 +1,4 @@
 
 ```shell
-$ git fetch --unshallow
+\$ git fetch --unshallow
 ```

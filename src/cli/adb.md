@@ -17,13 +17,13 @@ droidcam-cli 127.0.0.1 4747
 # adb online only
 - get the serial using the usb cable for the first time
 ```
-$ adb devices
+\$ adb devices
 ```
 connect using the `ip` of my phone
 
 - active `adb` without root
 ```bash
-$ adb -s XXXXX
+\$ adb -s XXXXX
 ```
 - connect
 ```bash

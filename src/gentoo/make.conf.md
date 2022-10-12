@@ -5,10 +5,10 @@
 # Please consult /usr/share/portage/config/make.conf.example for a more
 # detailed example.
 COMMON_FLAGS="-march=native -O2 -pipe"
-CFLAGS="${COMMON_FLAGS}"
-CXXFLAGS="${COMMON_FLAGS}"
-FCFLAGS="${COMMON_FLAGS}"
-FFLAGS="${COMMON_FLAGS}"
+CFLAGS="\${COMMON_FLAGS}"
+CXXFLAGS="\${COMMON_FLAGS}"
+FCFLAGS="\${COMMON_FLAGS}"
+FFLAGS="\${COMMON_FLAGS}"
 
 # NOTE: This stage was built with the bindist Use flag enabled
 PORTDIR="/var/db/repos/gentoo"
@@ -29,12 +29,12 @@ AUTOCLEAN="yes"
 
 USE=""
 ## Fonts
-USE="$USE truetype xft"
+USE="\$USE truetype xft"
 ## Power Management
-USE="$USE acpi lm_sensors -upower"
+USE="\$USE acpi lm_sensors -upower"
 
 ## Negatives...
-USE="$USE -gnome -kde"
+USE="\$USE -gnome -kde"
 
 
 

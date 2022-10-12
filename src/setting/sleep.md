@@ -10,7 +10,7 @@ findmnt -no UUID -T /swapfile
 
 - offset for `swapfile`
 ```bash
-filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+filefrag -v /swapfile | awk '\$1=="0:" {print substr(\$4, 1, length(\$4)-2)}'
 ```
 
 - add to `/etc/default/grub`
@@ -23,7 +23,7 @@ Dracut setting
 
 - add the `module`
 ```bash
-$ cat /etc/dracut.conf.d/resume.conf
+\$ cat /etc/dracut.conf.d/resume.conf
 
 add_dracutmodules+=" resume "
 ```
@@ -32,5 +32,5 @@ add_dracutmodules+=" resume "
 
 use the `linux<x>.<y>`
 ```bash
-$ xbps-reconfigure -f linux5.18
+\$ xbps-reconfigure -f linux5.18
 ```

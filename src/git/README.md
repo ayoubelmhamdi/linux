@@ -12,11 +12,11 @@ the `mybranch` is new than master:
   `git diff old..new`
   should be write `master..mybranch` will be add `+` after any `new line` created by `mybranch` 
 ```bash
-(master) $ cat file.txt 
+(master) \$ cat file.txt 
 a
 c
 
-(mybranch) $ cat file.txt 
+(mybranch) \$ cat file.txt 
 a
 b
 c
@@ -32,12 +32,12 @@ git diff master..mybranch -- /file1
 
 - view `diff` bitween to dirs
 ```bash
-$ diff -rq ./dir1 ./dir2
+\$ diff -rq ./dir1 ./dir2
 ```
 
 - git `back/reset/restor/revet` 
 ```bash
-$ git reset --hard 6bc2e3a
+\$ git reset --hard 6bc2e3a
 ```
 
 - diff new `file` only:

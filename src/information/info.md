@@ -1,9 +1,9 @@
 # cpu info
 ```bash
-$ cat /proc/cpuinfo
+\$ cat /proc/cpuinfo
  ```
 dmidecode
 
 ```bash
-$ inxi -Fxxxz
+\$ inxi -Fxxxz
 ```

@@ -6,10 +6,10 @@ lspci -v
 ```
 ### ? disable `nouveau`
 ```bash
-$ cat /etc/default/grub
+\$ cat /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
 
-$ update-grub
+\$ update-grub
 ```
 ### get the used 'GPU' at now
 ```bash

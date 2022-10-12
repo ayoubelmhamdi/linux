@@ -18,7 +18,7 @@ setxkbmap -layout us,ara -option grp:ctrl_alt_toggle
 # How remap key in lunix
 ## to get key code on use xev:
 ```bash
-xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", \$5, \$8 }'
 ```
 ## to remap on use xmodmap/setxkbmap...
 ```bash

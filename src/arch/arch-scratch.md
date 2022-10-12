@@ -2,7 +2,7 @@
 -------------------------
 
 ```bash
-pacman -Syy $(cat pacman.txt | sed '/^#/d' | tr '\n' ' ')
+pacman -Syy \$(cat pacman.txt | sed '/^#/d' | tr '\n' ' ')
 ```
 
 ### create user

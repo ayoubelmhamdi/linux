@@ -1,7 +1,7 @@
 
 # git locally
-  - pc:     `mkdir /path/to/origin && cd $_`
-  - remote: `mkdir /path/to/backup && pushd $_ # meen cd to dir2`
+  - pc:     `mkdir /path/to/origin && cd \$_`
+  - remote: `mkdir /path/to/backup && pushd \$_ # meen cd to dir2`
   - remote: `git init --bare`
   - pc:     `popd`
   - pc:     `git init`
