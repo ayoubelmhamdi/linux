@@ -39,9 +39,10 @@
 #
 ---
 - [FIX](./fix/README.md) 
-    - [Fix sound](./fix/fix-sound.md)
-    - [Fix tmux](./fix/fix-tmux.md)
-    - [Fix zsh](./fix/fix-zsh.md)
+    - [sound](./fix/fix-sound.md)
+    - [tmux](./fix/fix-tmux.md)
+    - [zsh](./fix/fix-zsh.md)
+    - [systemd](./fix/systemd.md)
 #
 ---
 - [SETTING](./setting/README.md)
