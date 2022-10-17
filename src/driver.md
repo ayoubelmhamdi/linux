@@ -1,38 +1,41 @@
 # Driver
 
-### get name of kenel module for all drivers
+### get the name of kernel module for all drivers
 ```bash
-lspci -v
+lspci -knn
 ```
-### ? disable `nouveau`
+### how to disable `nouveau`
 ```bash
-\$ cat /etc/default/grub
+cat /etc/default/grub
+```
+```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
-
-\$ update-grub
 ```
-### get the used 'GPU' at now
+```bash
+update-grub
+```
+### get the used `GPU` at now
 ```bash
 glxinfo | grep 'renderer string'
 ```
 
-### Use tow cart graphic for power performance
+### Use two carts graphic for power performance: optimums
 - using the `Proprietary` driver `nvidia`
 
-all app will run by `iGPU`, but if you want to run an app with `GPU`
+By default, all apps will run by ` internal GPU`, but if you want to run an app with `GPU`
 change the value of `DRI_PRIME` to `1`.
 ```bash
 DRI_PRIME=1 app
 ```
-- instalaltion
+- Install `nvidia`
 
-check if this package is installed [nvidia](https://docs.voidlinux.org/config/graphical-session/graphics-drivers/nvidia.html#reverting-from-nvidia-to-nouveau)
+install last [nvidia](https://docs.voidlinux.org/config/graphical-session/graphics-drivers/nvidia.html#reverting-from-nvidia-to-nouveau) drivers first, then if the `log` from `dmesg` tell you, what's drivers should be installed in your system
 ```bash
 xbps-install -S nvidia # or nvidia470 or nvidia390
 ```
-- check if driver if has not in `blacklist`
+- check if this driver wasn't marking as `blacklist`
 
- verify in `/etc/modprobe.d/nouveau_blacklist.conf`, `/usr/lib/modprobe.d/nvidia.conf`,
+ verify at `/etc/modprobe.d/nouveau_blacklist.conf`, `/usr/lib/modprobe.d/nvidia.conf`,
  or `/usr/lib/modprobe.d/nvidia-dkms.conf` by commenting it out:
 ```bash
 #blacklist nouveau
@@ -47,16 +50,18 @@ lsusb -t
 inxi -Fxxxz
 ```
 
-# remove (uninstall/block) driver
+# remove (uninstall/block) driver like nouveau
+at `/etc/modprobe.d/nouveau_blacklist.conf`
 ```bash
 blacklist nouveau
-op
+options nouveau modeset=0
 ```
+then:
 ```bash
 xbps-reconfigure -f linux5.19
 ```
 
-### remove extra dkms modules
+### to remove extra dkms modules
 ```bash
 dkms status
 sudo dkms remove v4l2loopback/0.12.5 --all
