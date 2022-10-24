@@ -36,6 +36,7 @@
     - [Man](./cli/man.md)
     - [adb](./cli/adb.md)
     - [Grub](./cli/grub.md)
+    - [Gdrive](./cli/gdrive.md)
 #
 ---
 - [FIX](./fix/README.md) 
@@ -43,6 +44,7 @@
     - [tmux](./fix/fix-tmux.md)
     - [zsh](./fix/fix-zsh.md)
     - [systemd](./fix/systemd.md)
+    - [systemd](./fix/mdbook.md)
 #
 ---
 - [SETTING](./setting/README.md)
