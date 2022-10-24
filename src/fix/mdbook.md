@@ -1,4 +1,6 @@
-# syntax Highlight
+# Syntax Highlight
+
+[issue](https://github.com/rust-lang/mdBook/issues/1459)
 
 From [highlightjs.org/download](https://highlightjs.org/download/), I specified only few **languages**, to download them
 
