@@ -1,0 +1,11 @@
+# prevent auto generated js and css 
+theme/* linguist-vendored
+
+# alias objC to matlab
+*.m linguist-language=matlab
+
+## don't ignore markdown
+#*.md -linguist-vendored
+#*.md -linguist-generated
+#*.md -linguist-documentation
+#*.md linguist-detectable
