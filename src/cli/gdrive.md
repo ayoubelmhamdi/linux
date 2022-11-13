@@ -7,8 +7,7 @@ git clone --depth=1 https://github.com/carstentrink/gdrive
 cd gdrive
 # edit ./handlers_drive.go
 # change cliend id and secrete_code
-./compile
-cp ./bin/gdrive* ~/go/bin/gdrive
+go install
 ```
 - [go fork2](https://github.com/msfjarvis/gdrive)
 ```bash
