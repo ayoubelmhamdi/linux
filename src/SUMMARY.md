@@ -44,7 +44,8 @@
     - [tmux](./fix/fix-tmux.md)
     - [zsh](./fix/fix-zsh.md)
     - [systemd](./fix/systemd.md)
-    - [systemd](./fix/mdbook.md)
+    - [mdbook](./fix/mdbook.md)
+    - [xbackligh and sceen saver](./fix/backlight.md)
 #
 ---
 - [SETTING](./setting/README.md)
