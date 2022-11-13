@@ -5,6 +5,8 @@
 ```bash
 git clone --depth=1 https://github.com/carstentrink/gdrive
 cd gdrive
+# edit ./handlers_drive.go
+# change cliend id and secrete_code
 ./compile
 cp ./bin/gdrive* ~/go/bin/gdrive
 ```
@@ -17,7 +19,9 @@ go install github.com/msfjarvis/gdrive@latest
 # any command like
 gdrive list
 ```
- ### download
+if you login with multi `emails`, should disconnected or use `private-browser`
+
+### download
 to download this link
 ```
 https://drive.google.com/u/1/uc?id=1z7RhJgZDDONsrv2mSoHxlkN3XBcvGc5T&export=download
