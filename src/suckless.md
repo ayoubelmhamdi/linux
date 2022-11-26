@@ -16,7 +16,7 @@ Try:
 ```
 ### how can found name of font on linux
 ```bash
-\$ fc-list | awk -F: '{print \$2}' | sort| uniq | grep -i "mono"
+fc-list --format="%{family}\n" | cut -d , -f 1 | sort | uniq
 ```
 
 ### How to kill script that run xsetroot (statusbar)  
