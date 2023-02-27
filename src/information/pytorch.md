@@ -1,29 +1,45 @@
 # PyTorch
 ----------
-welcome to manual to install `pytorch` in Linux(`Voidlinux`)
+welcome to the manual for installing the `pytorch` python library in Linux(`Voidlinux`)
 
 # Find Versions
 you should get right version for:
 - `Nvidia driver`
-- `cuda`
+- `cuda or cudatoolkit or pytorch-cuda`
 - `cuDNN`
-- `cuDNN`
+- `pytorch`
 - `cuDNN`
 
 ## nvidia driver version
 simple way is install latest version, and look in `dmsg` to find recommend version of nvidia, for `GeForce 820m` is `nvidia390`
 
 ## cuda version
-Look here for new (new)[] or [legacy]()
+You must choose a `cuda` version that compatible with your driver, and with `Compute Capability`
+
+- [driver] check driver [here](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-compatibility)
+- [Compute Capability] Look here for [new](https://developer.nvidia.com/cuda-gpus) or (legacy)[https://developer.nvidia.com/cuda-legacy-gpus] to get the `Compute Capability`.
+
+for me:
+    - the new cuda version that support my driver `nvidia390` is `CUDA 9.1 (9.1.85)`
+    - the `Compute Capability` for `nvidia 820m` is 2.1 `firmi`, that compatible with $v2.1 < cuda < 8.0$
+
+so i will try with `cuda 9.0 and cuda 8.0`
 
 ## cuDNN
-go to (cuDNN)[https://developer.nvidia.com/rdp/cudnn-archive] website, and search for `cuDNN` version that comatible with you version pf `cuda` that already get already, you can get something like that.
+go to [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive) website, and search for `cuDNN` version that comatible with you version pf `cuda` that already get already, you can get something like that.
 
 - `Download cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x`
 - `Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 9.0`
 if you your `cuda v9.0` you should use `cuDNN v7.6.5`
 
+##
+to get the right version for `pytorch` that conforme with `cudatoolkit` go to [this website](https://pytorch.org/get-started/previous-versions/)
+for me i get:
+```bash
+conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
+```
 # install
+---------
 
 ## install `nvidia390`
 ```bash
