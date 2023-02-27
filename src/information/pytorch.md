@@ -1,10 +1,34 @@
 # PyTorch
+----------
+welcome to manual to install `pytorch` in Linux(`Voidlinux`)
+
+# Find Versions
+you should get right version for:
+- `Nvidia driver`
+- `cuda`
+- `cuDNN`
+- `cuDNN`
+- `cuDNN`
+
+## nvidia driver version
+simple way is install latest version, and look in `dmsg` to find recommend version of nvidia, for `GeForce 820m` is `nvidia390`
+
+## cuda version
+Look here for new (new)[] or [legacy]()
+
+## cuDNN
+go to (cuDNN)[https://developer.nvidia.com/rdp/cudnn-archive] website, and search for `cuDNN` version that comatible with you version pf `cuda` that already get already, you can get something like that.
+
+- `Download cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x`
+- `Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 9.0`
+if you your `cuda v9.0` you should use `cuDNN v7.6.5`
+
+# install
 
 ## install `nvidia390`
 ```bash
 sudo xbps-install -S nvidia390
 ```
-
 ## cuda 10.1
 
 ```bash
