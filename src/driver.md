@@ -40,6 +40,11 @@ xbps-install -S nvidia # or nvidia470 or nvidia390
 ```bash
 #blacklist nouveau
 ```
+nvidia require module `bbswitch`
+
+```bash
+xbps-install -S bbswitch
+```
 
 ### usbs drivers
 ```bash
@@ -56,7 +61,7 @@ at `/etc/modprobe.d/nouveau_blacklist.conf`
 blacklist nouveau
 options nouveau modeset=0
 ```
-then:
+then: for `5.19`
 ```bash
 xbps-reconfigure -f linux5.19
 ```
