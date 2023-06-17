@@ -1,5 +1,4 @@
-Power management/Suspend and hibernate
-========================================
+# Power management/Suspend and hibernate
 
 Grub setting
 -----------------
@@ -10,7 +9,7 @@ findmnt -no UUID -T /swapfile
 
 - offset for `swapfile`
 ```bash
-filefrag -v /swapfile | awk '\$1=="0:" {print substr(\$4, 1, length(\$4)-2)}'
+sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
 ```
 
 - add to `/etc/default/grub`
@@ -18,19 +17,19 @@ filefrag -v /swapfile | awk '\$1=="0:" {print substr(\$4, 1, length(\$4)-2)}'
 GRUB_CMDLINE_LINUX_DEFAULT="quiet ... resume=UUID=c20be35e-47be-4e7d-919f-966ba1edf0ea resume_offset=2224128"
 
 ```
-Dracut setting
--------------------
+# Dracut setting
 
 - add the `module`
 ```bash
-\$ cat /etc/dracut.conf.d/resume.conf
+cat /etc/dracut.conf.d/resume.conf
 
 add_dracutmodules+=" resume "
 ```
 
 - generate the `initram`
 
-use the `linux<x>.<y>`
+Use the `linux<x>.<y>`
 ```bash
-\$ xbps-reconfigure -f linux5.18
+uname -r
+xbps-reconfigure -f linux5.18
 ```
