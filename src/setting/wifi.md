@@ -1,5 +1,13 @@
 # Wifi on Linux
 -----------------
+
+### get back Wlan0 name
+```console
+# cat /etc/udev/rules.d/80-net-name-slot.rules
+
+net.ifnames=0
+```
+
 ### unblock network
 ```bash
 # rfkill # view all devices
@@ -22,7 +30,7 @@ Or `ifconfig`:
 ```bash
 # iwlist wlan0 scan
 ```
-## get Signal and name of `SSID` 
+## get Signal and name of `SSID`
 ```
 # iw dev wlan0 link
 ```
