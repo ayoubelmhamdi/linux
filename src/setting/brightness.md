@@ -1,5 +1,8 @@
-# Xrandr
-- grep mobitor :
+# Brightness
+---------------
+
+## Xrandr
+- grep monitor :
 ```
 xrandr -q |grep connected
 
@@ -15,7 +18,7 @@ xrandr --output eDPy --brightness 0.5
 ```
 
 
-# Backlight
+# Backlight brightness
 
 - use cli to change to 50%
 ```bash
@@ -24,7 +27,9 @@ $ xbacklight -set 50
 
 - use echo to /sys/.../file
 ```bash
-echo 937 | sudo tee /sys/class/backlight/intel_backlight/actual_brightness
+# sudo chown $USER:$video /sys/class/backlight/*/actual_brightness
+# sudo chmod 0664 /sys/class/backlight/*/actual_brightness
+# echo 937 | sudo tee /sys/class/backlight/*/actual_brightness
 ```
 
 ### screen saver
@@ -34,7 +39,7 @@ xset s 300
 ```
 
 # fix i3status-rs
-we should use `elogind` that provide an service for `dbus` like `systemd` that help to adjuste the backlight.
+we should use `elogind` that provide an service for `dbus` like `systemd` that help to adjust the backlight.
 ```bash
 xbps-install -y elogind
 sudo ln -s /etc/sv/elogind/ /var/service
