@@ -64,6 +64,16 @@ $ openssl ca -config /etc/ssl/openssl.cnf -extensions server_cert -notext -md sh
 $ doas update-ca-certificates
 $ sudo ln -s /etc/sv/ufw /var/service
 $ doas openvpn --config u8080.ovpn --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC
+
+```
+- file.ovpn
+
+In any blocks inside this config file, replace with
+
+```sh
+auth-user-pass auth.txt
+script-security 2
+remote-cert-tls server
 ```
 
 - USAGE:
