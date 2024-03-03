@@ -1,0 +1,1222 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux docs</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Table of content</li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="driver.html"><strong aria-hidden="true">1.1.</strong> Driver</a></li><li class="chapter-item expanded "><a href="suckless.html"><strong aria-hidden="true">1.2.</strong> Suckless</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suckless-ubu.html"><strong aria-hidden="true">1.2.1.</strong> Ubuntu</a></li><li class="chapter-item expanded "><a href="suckless-void.html"><strong aria-hidden="true">1.2.2.</strong> Void</a></li><li class="chapter-item expanded "><a href="suckless-arch.html"><strong aria-hidden="true">1.2.3.</strong> Arch</a></li></ol></li><li class="chapter-item expanded "><a href="ubuntu/index.html"><strong aria-hidden="true">1.3.</strong> Ubuntu</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ubuntu/apt.html"><strong aria-hidden="true">1.3.1.</strong> apt</a></li></ol></li><li class="chapter-item expanded "><a href="arch/index.html"><strong aria-hidden="true">1.4.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch/arch-scratch.html"><strong aria-hidden="true">1.4.1.</strong> Install Arch</a></li></ol></li><li class="chapter-item expanded "><a href="void/index.html"><strong aria-hidden="true">1.5.</strong> Void Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="void/gpu.html"><strong aria-hidden="true">1.5.1.</strong> Gpu</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">2.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/local.html"><strong aria-hidden="true">2.1.</strong> Local</a></li><li class="chapter-item expanded "><a href="git/search.html"><strong aria-hidden="true">2.2.</strong> Search</a></li><li class="chapter-item expanded "><a href="git/unshalow.html"><strong aria-hidden="true">2.3.</strong> Unshalow</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ssh/index.html"><strong aria-hidden="true">3.</strong> ssh</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ssh/keys.html"><strong aria-hidden="true">3.1.</strong> Generate keys</a></li><li class="chapter-item expanded "><a href="ssh/github.html"><strong aria-hidden="true">3.2.</strong> Github</a></li><li class="chapter-item expanded "><a href="ssh/gitlab.html"><strong aria-hidden="true">3.3.</strong> Gitlab</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="cli/index.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cli/awk.html"><strong aria-hidden="true">4.1.</strong> awk</a></li><li class="chapter-item expanded "><a href="cli/cp.html"><strong aria-hidden="true">4.2.</strong> cp and skips</a></li><li class="chapter-item expanded "><a href="cli/date.html"><strong aria-hidden="true">4.3.</strong> Date</a></li><li class="chapter-item expanded "><a href="cli/stow.html"><strong aria-hidden="true">4.4.</strong> Stow</a></li><li class="chapter-item expanded "><a href="cli/squashfs.html"><strong aria-hidden="true">4.5.</strong> Squashfs</a></li><li class="chapter-item expanded "><a href="cli/man.html"><strong aria-hidden="true">4.6.</strong> Man</a></li><li class="chapter-item expanded "><a href="cli/adb.html"><strong aria-hidden="true">4.7.</strong> adb</a></li><li class="chapter-item expanded "><a href="cli/grub.html"><strong aria-hidden="true">4.8.</strong> Grub</a></li><li class="chapter-item expanded "><a href="cli/gdrive.html"><strong aria-hidden="true">4.9.</strong> Gdrive</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="fix/index.html"><strong aria-hidden="true">5.</strong> FIX</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="fix/fix-sound.html"><strong aria-hidden="true">5.1.</strong> sound</a></li><li class="chapter-item expanded "><a href="fix/fix-tmux.html"><strong aria-hidden="true">5.2.</strong> tmux</a></li><li class="chapter-item expanded "><a href="fix/fix-zsh.html"><strong aria-hidden="true">5.3.</strong> zsh</a></li><li class="chapter-item expanded "><a href="fix/systemd.html"><strong aria-hidden="true">5.4.</strong> systemd</a></li><li class="chapter-item expanded "><a href="fix/mdbook.html"><strong aria-hidden="true">5.5.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="fix/backlight.html"><strong aria-hidden="true">5.6.</strong> xbackligh and sceen saver</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="setting/index.html"><strong aria-hidden="true">6.</strong> SETTING</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="setting/wifi.html"><strong aria-hidden="true">6.1.</strong> Wifi</a></li><li class="chapter-item expanded "><a href="setting/brightness.html"><strong aria-hidden="true">6.2.</strong> Brightness</a></li><li class="chapter-item expanded "><a href="setting/gtk.html"><strong aria-hidden="true">6.3.</strong> Gtk</a></li><li class="chapter-item expanded "><a href="setting/swapfile.html"><strong aria-hidden="true">6.4.</strong> Swapfile</a></li><li class="chapter-item expanded "><a href="setting/PS1.html"><strong aria-hidden="true">6.5.</strong> PS1</a></li><li class="chapter-item expanded "><a href="setting/mount.html"><strong aria-hidden="true">6.6.</strong> Mount</a></li><li class="chapter-item expanded "><a href="setting/keybroard.html"><strong aria-hidden="true">6.7.</strong> Keybroard</a></li><li class="chapter-item expanded "><a href="setting/sleep.html"><strong aria-hidden="true">6.8.</strong> Sleep and Hibernation</a></li><li class="chapter-item expanded "><a href="setting/wayland.html"><strong aria-hidden="true">6.9.</strong> Wayland</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded "><a href="information/index.html"><strong aria-hidden="true">7.</strong> INFORMATION</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="information/info.html"><strong aria-hidden="true">7.1.</strong> pc info</a></li><li class="chapter-item expanded "><a href="information/chroot_GUI.html"><strong aria-hidden="true">7.2.</strong> Chroot GUI</a></li><li class="chapter-item expanded "><a href="information/chroot_ToBsd.html"><strong aria-hidden="true">7.3.</strong> Chroot To Bsd</a></li><li class="chapter-item expanded "><a href="information/class-windows.html"><strong aria-hidden="true">7.4.</strong> Class of windows</a></li><li class="chapter-item expanded "><a href="information/how-to-virifi.sig.html"><strong aria-hidden="true">7.5.</strong> How to virifi sig</a></li><li class="chapter-item expanded "><a href="information/du-h.html"><strong aria-hidden="true">7.6.</strong> du</a></li><li class="chapter-item expanded "><a href="information/screanshot.html"><strong aria-hidden="true">7.7.</strong> Screanshot</a></li><li class="chapter-item expanded "><a href="information/binnary.html"><strong aria-hidden="true">7.8.</strong> use non compatible binnary</a></li><li class="chapter-item expanded "><a href="information/pytorch.html"><strong aria-hidden="true">7.9.</strong> pyTorch</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Linux docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/ayoubelmhamdi/linux" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<ul>
+<li><a href="./cli/index.html">CLI</a></li>
+<li><a href="./fix/index.html">FIX</a></li>
+<li><a href="./setting/index.html">SETTING</a></li>
+<li><a href="./information/index.html">INFORMATION</a></li>
+</ul>
+<h3 id="install-module-pf-perl"><a class="header" href="#install-module-pf-perl">install module pf perl</a></h3>
+<pre><code class="language-bash">export PERL5LIB="\$HOME/.cpan/build:\$PERL5LIB"
+cpan YAML/Tiny.pm
+</code></pre>
+<h3 id="ckeck-process-if-runin"><a class="header" href="#ckeck-process-if-runin">ckeck process if runin</a></h3>
+<pre><code class="language-bash">pgrep nvim
+ps -C nginx
+ps aux | grep "nvim" | awk ' \$11 == "nvim" {print \$11}'
+</code></pre>
+<ul>
+<li>conddtion</li>
+</ul>
+<pre><code class="language-bash">if pgrep -x "gedit" &gt; /dev/null
+then
+    echo "Running"
+else
+    echo "Stopped"
+fi
+</code></pre>
+<h3 id="calcule-sha-hash"><a class="header" href="#calcule-sha-hash">calcule: sha hash</a></h3>
+<pre><code class="language-bash">xbps-install -Sy coreutils
+sha1sum
+sha256sum
+</code></pre>
+<h3 id="fix-greedy"><a class="header" href="#fix-greedy">fix greedy</a></h3>
+<pre><code class="language-bash">perl -pe 's#a.*?a#--#'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="linux-1"><a class="header" href="#linux-1">Linux</a></h1>
+<ul>
+<li><a href="./cli/index.html">CLI</a></li>
+<li><a href="./fix/index.html">FIX</a></li>
+<li><a href="./setting/index.html">SETTING</a></li>
+<li><a href="./information/index.html">INFORMATION</a></li>
+</ul>
+<h3 id="install-module-pf-perl-1"><a class="header" href="#install-module-pf-perl-1">install module pf perl</a></h3>
+<pre><code class="language-bash">export PERL5LIB="\$HOME/.cpan/build:\$PERL5LIB"
+cpan YAML/Tiny.pm
+</code></pre>
+<h3 id="ckeck-process-if-runin-1"><a class="header" href="#ckeck-process-if-runin-1">ckeck process if runin</a></h3>
+<pre><code class="language-bash">pgrep nvim
+ps -C nginx
+ps aux | grep "nvim" | awk ' \$11 == "nvim" {print \$11}'
+</code></pre>
+<ul>
+<li>conddtion</li>
+</ul>
+<pre><code class="language-bash">if pgrep -x "gedit" &gt; /dev/null
+then
+    echo "Running"
+else
+    echo "Stopped"
+fi
+</code></pre>
+<h3 id="calcule-sha-hash-1"><a class="header" href="#calcule-sha-hash-1">calcule: sha hash</a></h3>
+<pre><code class="language-bash">xbps-install -Sy coreutils
+sha1sum
+sha256sum
+</code></pre>
+<h3 id="fix-greedy-1"><a class="header" href="#fix-greedy-1">fix greedy</a></h3>
+<pre><code class="language-bash">perl -pe 's#a.*?a#--#'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="driver"><a class="header" href="#driver">Driver</a></h1>
+<h3 id="get-the-name-of-kernel-module-for-all-drivers"><a class="header" href="#get-the-name-of-kernel-module-for-all-drivers">get the name of kernel module for all drivers</a></h3>
+<pre><code class="language-bash">lspci -knn
+</code></pre>
+<h3 id="how-to-disable-nouveau"><a class="header" href="#how-to-disable-nouveau">how to disable <code>nouveau</code></a></h3>
+<pre><code class="language-bash">cat /etc/default/grub
+</code></pre>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
+</code></pre>
+<pre><code class="language-bash">update-grub
+</code></pre>
+<h3 id="get-the-used-gpu-at-now"><a class="header" href="#get-the-used-gpu-at-now">get the used <code>GPU</code> at now</a></h3>
+<pre><code class="language-bash">glxinfo | grep 'renderer string'
+</code></pre>
+<h3 id="use-two-carts-graphic-for-power-performance-optimums"><a class="header" href="#use-two-carts-graphic-for-power-performance-optimums">Use two carts graphic for power performance: optimums</a></h3>
+<ul>
+<li>using the <code>Proprietary</code> driver <code>nvidia</code></li>
+</ul>
+<p>By default, all apps will run by <code> internal GPU</code>, but if you want to run an app with <code>GPU</code>
+change the value of <code>DRI_PRIME</code> to <code>1</code>.</p>
+<pre><code class="language-bash">DRI_PRIME=1 app
+</code></pre>
+<ul>
+<li>Install <code>nvidia</code></li>
+</ul>
+<p>install last <a href="https://docs.voidlinux.org/config/graphical-session/graphics-drivers/nvidia.html#reverting-from-nvidia-to-nouveau">nvidia</a> drivers first, then if the <code>log</code> from <code>dmesg</code> tell you, what's drivers should be installed in your system</p>
+<pre><code class="language-bash">xbps-install -S nvidia # or nvidia470 or nvidia390
+</code></pre>
+<ul>
+<li>check if this driver wasn't marking as <code>blacklist</code></li>
+</ul>
+<p>verify at <code>/etc/modprobe.d/nouveau_blacklist.conf</code>, <code>/usr/lib/modprobe.d/nvidia.conf</code>,
+or <code>/usr/lib/modprobe.d/nvidia-dkms.conf</code> by commenting it out:</p>
+<pre><code class="language-bash">#blacklist nouveau
+</code></pre>
+<p>nvidia require module <code>bbswitch</code></p>
+<pre><code class="language-bash">xbps-install -S bbswitch
+</code></pre>
+<h3 id="usbs-drivers"><a class="header" href="#usbs-drivers">usbs drivers</a></h3>
+<pre><code class="language-bash">lsusb -t
+</code></pre>
+<pre><code class="language-bash">inxi -Fxxxz
+</code></pre>
+<h1 id="remove-uninstallblock-driver-like-nouveau"><a class="header" href="#remove-uninstallblock-driver-like-nouveau">remove (uninstall/block) driver like nouveau</a></h1>
+<p>at <code>/etc/modprobe.d/nouveau_blacklist.conf</code></p>
+<pre><code class="language-bash">blacklist nouveau
+options nouveau modeset=0
+</code></pre>
+<p>then: for <code>5.19</code></p>
+<pre><code class="language-bash">xbps-reconfigure -f linux5.19
+</code></pre>
+<h3 id="to-remove-extra-dkms-modules"><a class="header" href="#to-remove-extra-dkms-modules">to remove extra dkms modules</a></h3>
+<pre><code class="language-bash">dkms status
+sudo dkms remove v4l2loopback/0.12.5 --all
+xbps-reconfigure -f linux5.19
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="suckless-tools"><a class="header" href="#suckless-tools">Suckless Tools</a></h1>
+<hr />
+<ul>
+<li><a href="./suckless-void.html">Void</a></li>
+<li><a href="./suckless-ubu.html">Ubuntu</a></li>
+<li><a href="./suckless-arch.html">Arch</a></li>
+</ul>
+<h3 id="how-to-use-font-in-dwm-or-st-or-dmenu"><a class="header" href="#how-to-use-font-in-dwm-or-st-or-dmenu">how to use font in dwm or st or dmenu</a></h3>
+<p>if your are use some patch:</p>
+<ul>
+<li>you can not use multi font <code>font[]=font[1]</code></li>
+<li>you can not use <code>"mono:size=16</code> you must use <code>"mono 16"</code></li>
+</ul>
+<p>Try:</p>
+<pre><code class="language-c">  static const char font[] = "DejaVu Sans Mono 15";
+</code></pre>
+<h3 id="how-can-found-name-of-font-on-linux"><a class="header" href="#how-can-found-name-of-font-on-linux">how can found name of font on linux</a></h3>
+<pre><code class="language-bash">fc-list --format="%{family}\n" | cut -d , -f 1 | sort | uniq
+</code></pre>
+<h3 id="how-to-kill-script-that-run-xsetroot-statusbar"><a class="header" href="#how-to-kill-script-that-run-xsetroot-statusbar">How to kill script that run xsetroot (statusbar)</a></h3>
+<pre><code>kill -9 \$(ps -ef|awk  '/ayoubStatusBar/{print \$2}'|grep -v "awk"|awk 'NR==1')  
+# or
+pkill ayoubStatusBar
+</code></pre>
+<p><code>print \$2</code> because we have pid1 and pid2</p>
+<pre><code>pid1 myscript.sh  
+pid2 root that run this scripte : like terminal , or father of this scripts  
+</code></pre>
+<p><code>grep -v</code> for ignore process that grep for my script<br />
+<code>NR==2</code> for return only 1er ligne : that pipe from last pipe<br />
+<code>ps -ef</code> grep(find) pid-pross by origin script : htop not view origin scripts always</p>
+<h3 id="change-font-using-sed"><a class="header" href="#change-font-using-sed">change font using sed</a></h3>
+<pre><code class="language-bash">sed -iE 's#(static char \*font = ").......*\$#\1FiraCode\ Nerd\ Font:size=15";#' config.def.h
+sed -iE 's#(static char \*font2........).*\$#\1FiraCode\ Nerd\ Font:size=15" };#' config.def.h
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="suckless-tools-1"><a class="header" href="#suckless-tools-1">Suckless Tools</a></h1>
+<hr />
+<h3 id="surf"><a class="header" href="#surf">surf</a></h3>
+<pre><code class="language-bash">xxx webkit2gtk-devel gcr-devel
+</code></pre>
+<h1 id="how-to-install-dwm-in-ubuntu-linux"><a class="header" href="#how-to-install-dwm-in-ubuntu-linux">How to install dwm in Ubuntu-Linux</a></h1>
+<h3 id="xorg"><a class="header" href="#xorg">Xorg</a></h3>
+<pre><code>sudo apt install xorg
+</code></pre>
+<h3 id="dependencies-needed-for-compile-dwm-in-ubuntu-linux-from-scratch-is"><a class="header" href="#dependencies-needed-for-compile-dwm-in-ubuntu-linux-from-scratch-is">Dependencies needed for compile dwm in <code>Ubuntu linux</code> from scratch is:</a></h3>
+<pre><code>sudo apt install build-essential libx11-dev libxinerama-dev libxft-dev
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="suckless-tools-2"><a class="header" href="#suckless-tools-2">Suckless Tools</a></h1>
+<hr />
+<h1 id="surf-1"><a class="header" href="#surf-1">surf</a></h1>
+<pre><code class="language-bash">xbps-install -Sy webkit2gtk-devel gcr-devel
+
+</code></pre>
+<h1 id="dwm-in-void-linux"><a class="header" href="#dwm-in-void-linux">Dwm in void-linux</a></h1>
+<h1 id="xorg-1"><a class="header" href="#xorg-1">xorg</a></h1>
+<pre><code>sudo xbps-install -y xinit xauth xorg-server xorg-minimal
+</code></pre>
+<h3 id="dependencies-needed-for-compile-dwm-in-void-linux-from-scratch-is"><a class="header" href="#dependencies-needed-for-compile-dwm-in-void-linux-from-scratch-is">Dependencies needed for compile dwm in <code>void linux</code> from scratch is:</a></h3>
+<pre><code>sudo xbps-install -y base-devel libX11-devel libXft-devel libXinerama-devel freetype-devel fontconfig-devel 
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="suckless-tools-3"><a class="header" href="#suckless-tools-3">Suckless Tools</a></h1>
+<hr />
+<h2 id="surf-2"><a class="header" href="#surf-2">surf</a></h2>
+<pre><code class="language-bash">xbps-install -Sy webkit2gtk-devel gcr-devel
+
+</code></pre>
+<h1 id="dwm-in-arch-linux"><a class="header" href="#dwm-in-arch-linux">Dwm in Arch-linux</a></h1>
+<h3 id="xorg-2"><a class="header" href="#xorg-2">Xorg</a></h3>
+<pre><code class="language-bash"># TODO
+</code></pre>
+<h3 id="dependencies-needed-for-compile-dwm-in-arch-linux-from-scratch-is"><a class="header" href="#dependencies-needed-for-compile-dwm-in-arch-linux-from-scratch-is">Dependencies needed for compile dwm in <code>arch linux</code> from scratch is:</a></h3>
+<pre><code>sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ubuntu"><a class="header" href="#ubuntu">UBUNTU</a></h1>
+<hr />
+<p>To convert any binary from the <code>deb</code> format to <code>arch</code> format, should be extract them, copy all contient files to our true path, and install our dependencies</p>
+<p>Or, you can use, this script bellow, that automated all things.</p>
+<ul>
+<li>Arch</li>
+</ul>
+<pre><code>https://github.com/helixarch/debtap
+</code></pre>
+<ul>
+<li>Voidlinux</li>
+</ul>
+<pre><code>https://github.com/toluschr/xdeb
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="fix-apt"><a class="header" href="#fix-apt">fix apt</a></h1>
+<hr />
+<ul>
+<li>add non signed repository to apt</li>
+</ul>
+<pre><code class="language-bash">deb [trusted=yes] http://xxxxxx yyy main
+</code></pre>
+<ul>
+<li>fix _apt root</li>
+</ul>
+<pre><code class="language-bash">alias apt='apt-o APT::Sandbox::User=root'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="arch-linux"><a class="header" href="#arch-linux">Arch Linux</a></h1>
+<hr />
+<ul>
+<li><a href="arch/./arch-scratch.html">Install Arch</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="install-all-pkg-from-file"><a class="header" href="#install-all-pkg-from-file">install all pkg from file</a></h1>
+<hr />
+<pre><code class="language-bash">pacman -Syy \$(cat pacman.txt | sed '/^#/d' | tr '\n' ' ')
+</code></pre>
+<h3 id="create-user"><a class="header" href="#create-user">create user</a></h3>
+<pre><code class="language-bash"># TODO
+</code></pre>
+<h3 id="set-time"><a class="header" href="#set-time">set time</a></h3>
+<pre><code class="language-bash"># TODO
+</code></pre>
+<h3 id="networking"><a class="header" href="#networking">networking</a></h3>
+<pre><code class="language-bash"># TODO
+</code></pre>
+<h3 id="search-for-some-files-offline-fro-any-pkgs"><a class="header" href="#search-for-some-files-offline-fro-any-pkgs">search for some files offline fro any pkgs</a></h3>
+<pre><code class="language-bash">pkgfile --update
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="void-linux"><a class="header" href="#void-linux">Void Linux</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="void-linux-1"><a class="header" href="#void-linux-1">VOID LINUX</a></h1>
+<pre><code>xbps-install -S xorg
+</code></pre>
+<p>or</p>
+<pre><code>xbps-install -Sy xorg-server  xorg-fonts xinit
+</code></pre>
+<h1 id="driver-1"><a class="header" href="#driver-1">Driver</a></h1>
+<pre><code>xbps-install -Sy mesa intel-ucode
+</code></pre>
+<pre><code>xbps-install make cmake git wget curl bat exa  htop zsh nvim neovim
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="git"><a class="header" href="#git">Git</a></h1>
+<h2 id="root-from-absolute-path"><a class="header" href="#root-from-absolute-path">root from absolute path</a></h2>
+<pre><code class="language-bash">git rev-parse --show-toplevel
+</code></pre>
+<ul>
+<li>HOW view diff version of one file in two branch</li>
+</ul>
+<p>the <code>mybranch</code> is new than master:
+<code>git diff old..new</code>
+should be write <code>master..mybranch</code> will be add <code>+</code> after any <code>new line</code> created by <code>mybranch</code></p>
+<pre><code class="language-bash">(master) \$ cat file.txt 
+a
+c
+
+(mybranch) \$ cat file.txt 
+a
+b
+c
+</code></pre>
+<pre><code class="language-bash">git diff master..mybranch -- /file1
+</code></pre>
+<pre><code class="language-diff"> a
++b
+ c
+</code></pre>
+<ul>
+<li>view <code>diff</code> bitween to dirs</li>
+</ul>
+<pre><code class="language-bash">\$ diff -rq ./dir1 ./dir2
+</code></pre>
+<ul>
+<li>git <code>back/reset/restor/revet</code></li>
+</ul>
+<pre><code class="language-bash">\$ git reset --hard 6bc2e3a
+</code></pre>
+<ul>
+<li>diff new <code>file</code> only:</li>
+</ul>
+<pre><code class="language-bash">git diff --name-only  --diff-filter=A 65833e30..c3098905
+</code></pre>
+<ul>
+<li>submodule</li>
+</ul>
+<pre><code>git clone --recurse-submodules -j8 git://github.com/foo/bar.git
+git submodule update --init --recursive
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="git-locally"><a class="header" href="#git-locally">git locally</a></h1>
+<ul>
+<li>pc:     <code>mkdir /path/to/origin &amp;&amp; cd \$_</code></li>
+<li>remote: <code>mkdir /path/to/backup &amp;&amp; pushd \$_ # meen cd to dir2</code></li>
+<li>remote: <code>git init --bare</code></li>
+<li>pc:     <code>popd</code></li>
+<li>pc:     <code>git init</code></li>
+<li>pc:     <code>git remote add local /path/to/backup</code></li>
+<li>pc:     <code>touch aa{1..4}.txt</code></li>
+<li>pc:     <code>git add .</code></li>
+<li>pc:     <code>git commit -m 'init project'</code></li>
+<li>pc:     <code>git push -u local maste</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h3 id="findsearch-for-string-in-commits-in-git"><a class="header" href="#findsearch-for-string-in-commits-in-git">find/search for string in commits in git</a></h3>
+<pre><code class="language-bash">git rev-list --all | xargs git grep "string"
+</code></pre>
+<h3 id="deleted-file"><a class="header" href="#deleted-file">deleted file</a></h3>
+<p>Find by:</p>
+<pre><code class="language-bash">git log --diff-filter=D --summary file
+</code></pre>
+<p>Restore by:</p>
+<pre><code class="language-bash">git checkout dc5599 -- file
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><code class="language-shell">\$ git fetch --unshallow
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="how-to-login-to-phone"><a class="header" href="#how-to-login-to-phone">how to login to phone</a></h1>
+<ul>
+<li>install this app: <code>SimpleSSHD.apk</code>, that is an open source
+<ul>
+<li>create directory called <code>ssh</code> in your android at:
+<code>/storage/emulated/0/.ssh/</code>
+<ul>
+<li>SimpleSSHD.apk: change <code>Home Directory -&gt; /storage/emulated/0</code></li>
+<li>SimpleSSHD.apk: change <code>SSH PATH -&gt; /storage/emulated/0/.ssh</code></li>
+<li>get ip: the <code>ip</code> is showing in your <code>apk</code> like <code>192.168.43.1</code></li>
+<li>port the default is <code>2222</code></li>
+<li>default password should shown in <code>app</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fix error:
+<ul>
+<li>in android: remove old files in <code>/storage/emulated/0/.ssh/*</code></li>
+<li>in linux: remove old lines from <code>~/.ssh/known_hosts</code> like: <code>github.com ssh-ed25519 AAAAC3NzaC1lZ</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">$ cat ~/.ssh/id_rsa.pub |
+    ssh 192.168.43.1 -p 2222 "cat &gt;&gt; /storage/emulated/0/.ssh/authorized_keys"
+</code></pre>
+<h2 id="how-to-mount-termux-by-sshfs-in-linux"><a class="header" href="#how-to-mount-termux-by-sshfs-in-linux">How to mount termux by sshfs in linux</a></h2>
+<pre><code class="language-sh">sshfs u0_a133@192.168.43.1:/data/data/com.termux/files/home/ -p 8022 /mnt/termux
+</code></pre>
+<h3 id="terminal-local-download-file-from-remote"><a class="header" href="#terminal-local-download-file-from-remote">terminal (local): download file from remote</a></h3>
+<pre><code class="language-bash">$ scp -P8022 username@remote:/file/to/send /where/to/put
+</code></pre>
+<h3 id="terminal-local-upload-file-to-remote"><a class="header" href="#terminal-local-upload-file-to-remote">terminal (local): upload file to remote</a></h3>
+<pre><code class="language-bash">$ scp -P8022 /file/to/send username@remote:/where/to/put
+</code></pre>
+<h3 id="terminal-remote-download-file-from-local"><a class="header" href="#terminal-remote-download-file-from-local">terminal (remote): download file from local</a></h3>
+<pre><code class="language-bash"># TODO:
+</code></pre>
+<h3 id="terminal-remote-upload-file-to-local"><a class="header" href="#terminal-remote-upload-file-to-local">terminal (remote): upload file to local</a></h3>
+<pre><code class="language-bash"># TODO:
+</code></pre>
+<h3 id="to-use-vpn-by-ssh"><a class="header" href="#to-use-vpn-by-ssh">To use vpn by ssh</a></h3>
+<p>use<code>premiusa2.vpnjantit.com:22</code>
+my number in voip:<code>+1 442  946  2073</code></p>
+<ul>
+<li>testing</li>
+</ul>
+<pre><code class="language-sh">$ dos2unix usa2.vpnjantit.com/usa2.vpnjantit-tcp-8080.ovpn
+$ sudo cp /usr/share/examples/openvpn /etc -r
+$ sudo vim /etc/ssl/openssl.cnf
+$ openssl ca -config openssl.cnf -extensions server_cert -notext -md sha256 -in csr.pem -out cert.pem
+$ openssl ca -config /etc/ssl/openssl.cnf -extensions server_cert -notext -md sha256 -in csr.pem -out cert.pem
+$ doas update-ca-certificates
+$ sudo ln -s /etc/sv/ufw /var/service
+$ doas openvpn --config u8080.ovpn --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC
+
+</code></pre>
+<ul>
+<li>file.ovpn</li>
+</ul>
+<p>In any blocks inside this config file, replace with</p>
+<pre><code class="language-sh">auth-user-pass auth.txt
+script-security 2
+remote-cert-tls server
+</code></pre>
+<ul>
+<li>USAGE:</li>
+</ul>
+<pre><code class="language-sh">$ sudo openvpn --config u8080.ovpn --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="rsa-ed"><a class="header" href="#rsa-ed">rsa ed</a></h1>
+<p>Create <code>rsa</code> without prompt</p>
+<pre><code class="language-bash">ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="how-ram-usage"><a class="header" href="#how-ram-usage">how ram usage</a></h1>
+<pre><code class="language-bash">\$ cat /proc/meminfo | awk 'FNR == 1 {tot=\$2} FNR==2 {free=\$2} FNR==3 {avai=\$2} FNR==4 {buf=\$2} FNR==5 {cach=\$2} FNR==21 {shem=\$2} FNR==24 {srec=\$2} {green=tot-free-(buf+cach);blue=buf;yellow=cach+srec-shem} END {print
+   (tot - free - (buf + cach+srec)) / 1024}'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="linux-how-to-copy-but-not-overwrite"><a class="header" href="#linux-how-to-copy-but-not-overwrite">Linux how to copy but not overwrite?</a></h1>
+<ul>
+<li>skip existing files linux</li>
+</ul>
+<pre><code class="language-bash">rsync -a -v --ignore-existing
+cp -nv 
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><code class="language-bash"># Set date by cli
+date --set '2021-09-14 22:16:00'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="zsh-stow"><a class="header" href="#zsh-stow">zsh stow</a></h1>
+<pre><code class="language-bash">root=\${1:-root}
+
+mkdir -p ~/.config/zsh
+
+stow --dir=\$HOME/stow/zsh --target=\$HOME/.config/zsh void
+stow --dir=\$HOME/stow/zsh --target=\$HOME/.config/zsh universe
+stow --dir=\$HOME/stow/zsh --target=\$HOME init
+
+exit
+if [[ "\$root" = "root" ]];then
+    stow --dir=\$HOME/stow/zsh --target=\$HOME/.config/zsh void-root
+else
+    stow --dir=\$HOME/stow/zsh --target=\$HOME/.config/zsh void-home
+fi
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><code class="language-bash">\$ sudo apt-get install squashfs-tools 
+</code></pre>
+<pre><code class="language-bash">\$ unsquashfs -f -d /media/location1 /media/location2/file.squashf
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id=""><a class="header" href="#"></a></h1>
+<h1 id="how-yo-install-man-in-void-xbps"><a class="header" href="#how-yo-install-man-in-void-xbps">how yo install man in void xbps</a></h1>
+<pre><code class="language-bash">\$ xbps-install -Sy man-pages-posix man-pages
+</code></pre>
+<h1 id="dont-install-if-not-needed"><a class="header" href="#dont-install-if-not-needed">don't install if not needed</a></h1>
+<pre><code class="language-bash">\$ man-dbman-db
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="connect-by-adb"><a class="header" href="#connect-by-adb">connect by adb</a></h1>
+<h3 id="usb"><a class="header" href="#usb">usb</a></h3>
+<ul>
+<li>Enable <code>usb debugging</code></li>
+<li>Select <code>PTP (Picture Transfer Protocol)</code></li>
+</ul>
+<pre><code class="language-bash">adb kill-server
+adb start-server
+adb devices
+adb usb
+</code></pre>
+<h1 id="doidcam-cli"><a class="header" href="#doidcam-cli">Doidcam cli</a></h1>
+<pre><code class="language-bash">adb forward tcp:4747 tcp:4747
+droidcam-cli 127.0.0.1 4747
+</code></pre>
+<h1 id="adb-online-only"><a class="header" href="#adb-online-only">adb online only</a></h1>
+<ul>
+<li>get the serial using the usb cable for the first time</li>
+</ul>
+<pre><code>\$ adb devices
+</code></pre>
+<p>connect using the <code>ip</code> of my phone</p>
+<ul>
+<li>active <code>adb</code> without root</li>
+</ul>
+<pre><code class="language-bash">\$ adb -s XXXXX
+</code></pre>
+<ul>
+<li>connect</li>
+</ul>
+<pre><code class="language-bash">adb connect 192.168.82.207:5555
+</code></pre>
+<pre><code>adb devices
+adb tcpip 5555
+adb connect $(resolveip):5555
+adb usb
+adb disconnect
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="search-for-other-os"><a class="header" href="#search-for-other-os">search for other OS</a></h1>
+<pre><code class="language-bash">echo "GRUB_DISABLE_OS_PROBER=false" | tee /etc/default/grub
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="gdrive"><a class="header" href="#gdrive">Gdrive</a></h1>
+<ul>
+<li><a href="https://github.com/carstentrink/gdrive">go fork1</a></li>
+</ul>
+<pre><code class="language-bash">git clone --depth=1 https://github.com/carstentrink/gdrive
+cd gdrive
+# edit ./handlers_drive.go
+# change cliend id and secrete_code
+go install
+</code></pre>
+<ul>
+<li><a href="https://github.com/msfjarvis/gdrive">go fork2</a></li>
+</ul>
+<pre><code class="language-bash">go install github.com/msfjarvis/gdrive@latest
+</code></pre>
+<h3 id="active"><a class="header" href="#active">Active</a></h3>
+<pre><code class="language-bash"># any command like
+gdrive list
+</code></pre>
+<p>if you login with multi <code>emails</code>, should disconnected or use <code>private-browser</code></p>
+<h3 id="download"><a class="header" href="#download">download</a></h3>
+<p>to download this link</p>
+<pre><code>https://drive.google.com/u/1/uc?id=1z7RhJgZDDONsrv2mSoHxlkN3XBcvGc5T&amp;export=download
+</code></pre>
+<p>use</p>
+<pre><code>gdrive download 1z7RhJgZDDONsrv2mSoHxlkN3XBcvGc5T
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="fix-sounds"><a class="header" href="#fix-sounds">FIX SOUNDS</a></h1>
+<h1 id="pipewire"><a class="header" href="#pipewire">PIPEWIRE</a></h1>
+<p>install <a href="http://">wireplump-elogind</a> for shared object that need elogind and active <code>sv status elogind</code>
+active pipewire-pulse by uncomment this line</p>
+<pre><code>    #{ path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
+</code></pre>
+<h2 id="startenable"><a class="header" href="#startenable">start/Enable</a></h2>
+<p>no need any services, it's can run with autostart apps or .xinitrc ...</p>
+<pre><code class="language-bash">pipewire &amp;
+sleep 1 # if pipewire not running the wireplumber could not run.
+wireplumber &amp;
+</code></pre>
+<h2 id="interface"><a class="header" href="#interface">interface</a></h2>
+<p>we have <a href="http://">pavucontrol</a> and <a href="http://">helvum</a></p>
+<h2 id="sound-control"><a class="header" href="#sound-control">sound control</a></h2>
+<p>we can change sound volume using to <code>99%</code> by:</p>
+<pre><code>$ pactl set-sink-volume 0 99%
+</code></pre>
+<h1 id="old"><a class="header" href="#old">OLD</a></h1>
+<hr />
+<ul>
+<li><a href="https://dev.to/setevoy/linux-alsa-lib-pcmdmixc1108sndpcmdmixopen-unable-to-open-slave-38on">Linux: ALSA lib pcm_dmix.c:1108:(snd_pcm_dmix_open) unable to open slave</a></li>
+</ul>
+<h3 id="fix-sound-work-by-sudo-only"><a class="header" href="#fix-sound-work-by-sudo-only">fix sound work by sudo only</a></h3>
+<ul>
+<li>select <code>module</code> (driver)</li>
+</ul>
+<pre><code class="language-bash">$ cat /etc/modprobe.d/default.conf
+
+options snd_hda_intel index=1
+</code></pre>
+<ul>
+<li>check <code>alsamixer</code></li>
+</ul>
+<pre><code>$ alsamixser
+</code></pre>
+<p><img src="fix/./alsamixer.png" alt="image" /></p>
+<ul>
+<li>choose <code>builting audio</code> that not <code>off</code> in <code>pulsemixer</code></li>
+</ul>
+<pre><code>$ pulsemixer
+</code></pre>
+<p><img src="fix/./pulsemixer.png" alt="image" /></p>
+<h1 id="unmout-all-but-danger"><a class="header" href="#unmout-all-but-danger">unmout all, But danger</a></h1>
+<pre><code class="language-bash">$ amixer scontrols | grep -oE "'.*'" | awk -F\' \
+    '{print "amixer -c 0 set \""$2"\" unmute 100"}' &gt;&gt; ~/speaker.txt
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<ul>
+<li>must source <code>~/.tmux.conf</code> to load any change in<code>.tmux.conf</code></li>
+<li>must use correct var <code>\$TERM</code> as <code>export TERM=screen-256color-bc</code></li>
+<li>if <code>screen-256color-bc</code> cause problem with zsh/kitty dont initialise <code>\$TERM</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<p>if you want to use <code>export TERM=xterm-256color</code> in <code>.zshrc</code> instance of <code>export TERM=xterm</code></p>
+<pre><code class="language-bash">ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color
+export TERM=xterm-256color
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h3 id="service-for-dbus-notify"><a class="header" href="#service-for-dbus-notify">Service for <code>dbus notify</code></a></h3>
+<pre><code>xbps-install -Sy notify-osd
+
+# export some variables
+eval `dbus-launch --auto-syntax`
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="syntax-highlight"><a class="header" href="#syntax-highlight">Syntax Highlight</a></h1>
+<p><a href="https://github.com/rust-lang/mdBook/issues/1459">issue</a></p>
+<p>From <a href="https://highlightjs.org/download/">highlightjs.org/download</a>, I specified only few <strong>languages</strong>, to download them</p>
+<p><img src="https://user-images.githubusercontent.com/34358145/197431856-6e785f9b-6165-4b76-8eb5-7e572148391d.png" alt="image" /></p>
+<p>I got this zip</p>
+<p><img src="https://user-images.githubusercontent.com/34358145/197432280-72df9430-21d9-4531-8641-7a3d620371aa.png" alt="image" /></p>
+<p>I have chosen <code>highlight.min.js</code>, by:</p>
+<pre><code>cp ~/Download/highlight.min.js ~/mybook/theme/highlight.js
+</code></pre>
+<pre><code>├── book.toml
+├── src
+│   ├── chapter_1.md
+│   └── SUMMARY.md
+└── theme
+    ├── highlight.css
+    └── highlight.js
+</code></pre>
+<h1 id="missing"><a class="header" href="#missing">MISSING</a></h1>
+<p><code>highlight.css</code> can't load from original <a href="https://github.com/highlightjs/highlight.js/tree/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles">highlightjs</a> repo automatic</p>
+<pre><code>wget https://github.com/highlightjs/highlight.js/blob/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles/base16/github.css \
+ -O ~/mybook/theme/highlight.css
+</code></pre>
+<p>but I can load it manually with some <code>extension</code> like <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en">stylus</a></p>
+<h2 id="or"><a class="header" href="#or">OR</a></h2>
+<p>add to <code>book.toml</code></p>
+<pre><code class="language-toml">[output.html]
+additional-css = ["./theme/highlight.css"]
+</code></pre>
+<p>with some modification in <code>theme/highlight.css</code></p>
+<pre><code class="language-diff">.hljs {
++  display: block;
++  overflow-x: auto;
+   color: #adbac7;
+-  background: #22272e;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="wifi-on-linux"><a class="header" href="#wifi-on-linux">Wifi on Linux</a></h1>
+<hr />
+<h3 id="get-back-wlan0-name"><a class="header" href="#get-back-wlan0-name">get back Wlan0 name</a></h3>
+<pre><code class="language-console"># cat /etc/udev/rules.d/80-net-name-slot.rules
+
+net.ifnames=0
+</code></pre>
+<h3 id="unblock-network"><a class="header" href="#unblock-network">unblock network</a></h3>
+<pre><code class="language-bash"># rfkill # view all devices
+# rfkill unblock bluetooth
+# rfkill unblock wlan
+</code></pre>
+<h3 id="active-network"><a class="header" href="#active-network">active network</a></h3>
+<p>Use <code>ip</code> command to bring up the <code>wifi</code> interface:</p>
+<pre><code class="language-bash"># sudo ip link set wlan0 up
+</code></pre>
+<p>Or <code>ifconfig</code>:</p>
+<pre><code class="language-bash"># ifconfig wlan0 up
+</code></pre>
+<h3 id="wifi-info"><a class="header" href="#wifi-info">Wifi info</a></h3>
+<pre><code class="language-bash"># iwlist wlan0 scan
+</code></pre>
+<h2 id="get-signal-and-name-of-ssid"><a class="header" href="#get-signal-and-name-of-ssid">get Signal and name of <code>SSID</code></a></h2>
+<pre><code># iw dev wlan0 link
+</code></pre>
+<h3 id="ad-hoc"><a class="header" href="#ad-hoc">ad-hoc</a></h3>
+<p>Check if your <code>Wifi</code> is supported by `AP``</p>
+<pre><code class="language-bash"># iw phy |grep -iA6 'Supported interface modes:'
+</code></pre>
+<ul>
+<li>use <code>hostapd</code></li>
+<li>use <code>create_ap</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="brightness"><a class="header" href="#brightness">Brightness</a></h1>
+<hr />
+<h2 id="xrandr"><a class="header" href="#xrandr">Xrandr</a></h2>
+<ul>
+<li>grep monitor :</li>
+</ul>
+<pre><code>xrandr -q |grep connected
+
+eDP1 connected primary 1280x800+0+0 (normal left inverted right x axis y axis) 217mm x 135mm
+DP1 disconnected (normal left inverted right x axis y axis)
+HDMI1 disconnected (normal left inverted right x axis y axis)
+VIRTUAL1 disconnected (normal left inverted right x axis y axis)
+</code></pre>
+<ul>
+<li>change from 0 to 1</li>
+</ul>
+<pre><code>xrandr --output eDPy --brightness 0.5
+
+</code></pre>
+<h1 id="backlight-brightness"><a class="header" href="#backlight-brightness">Backlight brightness</a></h1>
+<ul>
+<li>use cli to change to 50%</li>
+</ul>
+<pre><code class="language-bash">$ xbacklight -set 50
+</code></pre>
+<ul>
+<li>use echo to /sys/.../file</li>
+</ul>
+<pre><code class="language-bash"># sudo chown $USER:$video /sys/class/backlight/*/actual_brightness
+# sudo chmod 0664 /sys/class/backlight/*/actual_brightness
+# echo 937 | sudo tee /sys/class/backlight/*/actual_brightness
+</code></pre>
+<h3 id="screen-saver"><a class="header" href="#screen-saver">screen saver</a></h3>
+<p>use 300 seconde to go to screen saver</p>
+<pre><code class="language-bash">xset s 300
+</code></pre>
+<h1 id="fix-i3status-rs"><a class="header" href="#fix-i3status-rs">fix i3status-rs</a></h1>
+<p>we should use <code>elogind</code> that provide an service for <code>dbus</code> like <code>systemd</code> that help to adjust the backlight.</p>
+<pre><code class="language-bash">xbps-install -y elogind
+sudo ln -s /etc/sv/elogind/ /var/service
+</code></pre>
+<p>then logout or reboot.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="install-theme"><a class="header" href="#install-theme">Install theme</a></h1>
+<pre><code class="language-bash">xbps-install -Sy lxappearance
+</code></pre>
+<h3 id="all-theme-store-in"><a class="header" href="#all-theme-store-in">all theme store in</a></h3>
+<pre><code class="language-bash">ls /usr/share/themes
+</code></pre>
+<h3 id="lxappearance-show-standard-themes-without"><a class="header" href="#lxappearance-show-standard-themes-without">lxappearance show standard themes without</a></h3>
+<p>one or this tow <code>repo</code></p>
+<pre><code class="language-bash">xbps-install -Sy gnome-themes-standard
+xbps-install -Sy gtk-engine-murrine
+</code></pre>
+<h1 id="compile-some-theme-by-messon"><a class="header" href="#compile-some-theme-by-messon">compile some theme by messon</a></h1>
+<pre><code class="language-bash">xbps-install -Sy sassc glib-devel
+</code></pre>
+<h1 id="cursor"><a class="header" href="#cursor">cursor</a></h1>
+<pre><code class="language-bash">xbps-install -Sy breeze-purple-cursor-theme
+</code></pre>
+<h1 id="gtk-debug-error"><a class="header" href="#gtk-debug-error">gtk debug error</a></h1>
+<pre><code class="language-bash"># if you export this var like that:
+export GTK_DEBUG="interactive"
+
+# to disable one time
+unset GTK_DEBUG
+
+# or from .bashrc to disable it completely
+unset export GTK_DEBUG="interactive"
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="crate-swapfile"><a class="header" href="#crate-swapfile">crate swapfile</a></h1>
+<pre><code class="language-bash">SWAPFILE="\${1:-/swapfile}"
+GB="\${2:-4G}"
+
+fallocate -l "\$GB" "\$SWAPFILE"
+chmod 600 "\$SWAPFILE"
+mkswap "\$SWAPFILE"
+swapon "\$SWAPFILE"
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h2 id="bash"><a class="header" href="#bash">BASH</a></h2>
+<pre><code class="language-bash">export PS1="\[\e]0;\u@\h: \w\a\]\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="overlay-fs-mount-xbps"><a class="header" href="#overlay-fs-mount-xbps">Overlay fs mount xbps</a></h1>
+<p>this use to mount to <code>dir</code> in one <code>dir</code></p>
+<pre><code class="language-bash">\$ sudo mount -t overlay overlay -o lowerdir=/opt/xbps-src/void-packages:/opt/xbps-src/ayoub,upperdir=/opt/xbps-src/xbps-up,workdir=/opt/xbps-src/xbps-work /opt/xbps-src/xbps-merg
+</code></pre>
+<h1 id="mount-pkg-for-void-packages"><a class="header" href="#mount-pkg-for-void-packages">mount pkg for void-packages</a></h1>
+<ul>
+<li>don't use <code>ln</code> or <code>ln -s</code></li>
+<li>use <code>mount --bind</code>:</li>
+</ul>
+<pre><code class="language-bash">\$ mkdir /path/to/new/dir
+\$ mount --bind /path/to/dir /path/to/new/dir
+</code></pre>
+<h1 id="fix-mounted-directory"><a class="header" href="#fix-mounted-directory">fix mounted directory</a></h1>
+<p>some <code>shared</code> library not word in <code>tmpfs/shm</code>, I should remount with permission to <code>exec</code></p>
+<pre><code class="language-bash">mount --bind /path/to/dir /new/dir
+mount -o remount,exec,bind  /new/dir
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="how-to-switch-bettwin-layout-arabicus-in-keybroad"><a class="header" href="#how-to-switch-bettwin-layout-arabicus-in-keybroad">How to switch bettwin layout arabic/us in keybroad</a></h1>
+<p>you can use sxhkd</p>
+<pre><code># keybroad layout us
+alt + shift + u
+    setxkbmap us
+    
+# keybroad layot arabic
+alt + shift + a
+    setxkbmap ara
+    
+</code></pre>
+<p>or use <code>Ctrl</code> and <code>Alt</code></p>
+<pre><code>setxkbmap -layout us,ara -option grp:ctrl_alt_toggle
+</code></pre>
+<h1 id="how-remap-key-in-lunix"><a class="header" href="#how-remap-key-in-lunix">How remap key in lunix</a></h1>
+<h2 id="to-get-key-code-on-use-xev"><a class="header" href="#to-get-key-code-on-use-xev">to get key code on use xev:</a></h2>
+<pre><code class="language-bash">xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", \$5, \$8 }'
+</code></pre>
+<h2 id="to-remap-on-use-xmodmapsetxkbmap"><a class="header" href="#to-remap-on-use-xmodmapsetxkbmap">to remap on use xmodmap/setxkbmap...</a></h2>
+<pre><code class="language-bash">xmodmap -e 'keycode 66 = Shift_L'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="power-managementsuspend-and-hibernate"><a class="header" href="#power-managementsuspend-and-hibernate">Power management/Suspend and hibernate</a></h1>
+<h2 id="grub-setting"><a class="header" href="#grub-setting">Grub setting</a></h2>
+<ul>
+<li>UUID for <code>swapfile</code></li>
+</ul>
+<pre><code class="language-bash">findmnt -no UUID -T /swapfile
+</code></pre>
+<ul>
+<li>offset for <code>swapfile</code></li>
+</ul>
+<pre><code class="language-bash">sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+</code></pre>
+<ul>
+<li>add to <code>/etc/default/grub</code></li>
+</ul>
+<pre><code class="language-bash">GRUB_CMDLINE_LINUX_DEFAULT="quiet ... resume=UUID=c20be35e-47be-4e7d-919f-966ba1edf0ea resume_offset=2224128"
+
+</code></pre>
+<h1 id="dracut-setting"><a class="header" href="#dracut-setting">Dracut setting</a></h1>
+<ul>
+<li>add the <code>module</code></li>
+</ul>
+<pre><code class="language-bash">cat /etc/dracut.conf.d/resume.conf
+
+add_dracutmodules+=" resume "
+</code></pre>
+<ul>
+<li>generate the <code>initram</code></li>
+</ul>
+<p>Use the <code>linux&lt;x&gt;.&lt;y&gt;</code></p>
+<pre><code class="language-bash">uname -r
+xbps-reconfigure -f linux5.18
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="must-install-tow-wrt-lib-for-libinput"><a class="header" href="#must-install-tow-wrt-lib-for-libinput">must install tow wrt lib for libinput</a></h1>
+<pre><code class="language-bash">\$ xbps-install -Sy libinput-devel wlroots-devel xorg-server-xwayland wayland-devel
+</code></pre>
+<h1 id="wyland-protocol"><a class="header" href="#wyland-protocol">wyland protocol</a></h1>
+<pre><code class="language-bash">\$ xbps-install -Sy wayland wayland-protocols wlroots
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="cpu-info"><a class="header" href="#cpu-info">cpu info</a></h1>
+<pre><code class="language-bash">\$ cat /proc/cpuinfo
+</code></pre>
+<p>dmidecode</p>
+<pre><code class="language-bash">\$ inxi -Fxxxz
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="fix-xrdb"><a class="header" href="#fix-xrdb">fix xrdb</a></h1>
+<pre><code class="language-bash">xauth +
+</code></pre>
+<h1 id="how-to-open-display-in-chroot-envirenmet"><a class="header" href="#how-to-open-display-in-chroot-envirenmet">How to open DISPLAY in chroot envirenmet</a></h1>
+<ul>
+<li>get auth key</li>
+</ul>
+<p>in your original pc ,execute:</p>
+<pre><code class="language-bash">xauth list
+
+latitude/unix:0  MIT-MAGIC-COOKIE-1  d4474d13c
+</code></pre>
+<ul>
+<li>put auth key in <code>~/.Xresources</code></li>
+</ul>
+<p>in chrooted linux create <code>~/.Xresources</code> in first time</p>
+<pre><code class="language-bash">touch ~/.Xresources
+</code></pre>
+<ul>
+<li>add key by executing:</li>
+</ul>
+<pre><code class="language-bash">xauth add latitude/unix:0  MIT-MAGIC-COOKIE-1  d4474d13c
+</code></pre>
+<h4 id="in-minimal-linux"><a class="header" href="#in-minimal-linux">in minimal linux:</a></h4>
+<ul>
+<li>ubuntu</li>
+</ul>
+<pre><code class="language-bash">apt install x11-apps 
+apt install xauth
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><code class="language-bash">mkdir /mnt/freebsd
+mount /dev/da0s1 /mnt/freebsd
+chroot /mnt/freebsd /bin/env -i TERM=$TERM /bin/csh
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="get-the-window-class"><a class="header" href="#get-the-window-class">get the window class</a></h1>
+<pre><code class="language-bash">xprop | awk '
+	/^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
+	/^WM_NAME/{sub(/.* =/, "title:"); print}'
+</code></pre>
+<p>output:</p>
+<pre><code>instance: "Navigator"
+class: "Firefox"
+title: "Mozilla Firefox
+</code></pre>
+<h1 id="dwm-specified-some-windows-to-specified-tag"><a class="header" href="#dwm-specified-some-windows-to-specified-tag">dwm specified some windows to specified tag</a></h1>
+<p>if the some apps have tow windows, each windows should specified the <code>class</code> and <code>instance</code> and <code>title</code>, that help dwm to disting between windows</p>
+<pre><code class="language-c">static const Rule rules[] = {
+    /* class       instance      title           tags_mask isfloating   monitor */
+    { "Firefox",   "Toolkit",   "Picture-in-Picture", 1 &lt;&lt; 4,   0, -1 },
+    { "Firefox",   "Navigator", "Mozilla Firefox",    1 &lt;&lt; 3,   0, -1 },
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="check-sig-key"><a class="header" href="#check-sig-key">Check sig key</a></h1>
+<pre><code class="language-bash">gpg --auto-key-retrieve --verify artix-base-s6-20200214-x86_64.iso.sig artix-base-s6-20200214-x86_64.iso
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="get-large-dirs"><a class="header" href="#get-large-dirs">Get large dirs</a></h1>
+<pre><code class="language-bash">du -h -d 1 /usr/lib | sort --sort=human-numeric
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="how-to-use-flameshot"><a class="header" href="#how-to-use-flameshot">HOW TO USE <code>flameshot</code></a></h1>
+<h3 id="capture-a-region-using-the-gui-and-have-it-automatically-saved-to-your-pictures-folder-when-clicking-the-save-button-in-gui"><a class="header" href="#capture-a-region-using-the-gui-and-have-it-automatically-saved-to-your-pictures-folder-when-clicking-the-save-button-in-gui">Capture a region using the GUI, and have it automatically saved to your pictures folder when clicking the save button in GUI</a></h3>
+<p><code>\$ flameshot gui -p ~/Pictures</code></p>
+<h3 id="capture-the-active-monitor-and-save-it-automatically-to-your-pictures-folder"><a class="header" href="#capture-the-active-monitor-and-save-it-automatically-to-your-pictures-folder">Capture the active monitor and save it automatically to your pictures folder</a></h3>
+<p><code>\$ flameshot screen -p ~/Pictures</code></p>
+<h3 id="capture-the-full-desktop-all-monitors-and-save-it-automatically-to-your-pictures-folder"><a class="header" href="#capture-the-full-desktop-all-monitors-and-save-it-automatically-to-your-pictures-folder">Capture the full desktop (all monitors) and save it automatically to your pictures folder</a></h3>
+<p><code>\$ flameshot full -p ~/Pictures</code></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="use-non-compatible-binarry"><a class="header" href="#use-non-compatible-binarry">USE NON-COMPATIBLE BINARRY</a></h1>
+<p>sometimes, I can find some apps in my distrubution, or I want a version that new or old, that I can get in my distrubution, and I can build it from scractch(probably need new/old gcc/clang or property),</p>
+<h3 id="use-ld-linuxso"><a class="header" href="#use-ld-linuxso">use <code>ld-linux.so</code></a></h3>
+<p>The <code>ld-linux.so</code> could search for <code>shared</code> and <code>static</code> libs (binnary libs, created by gcc/clang).
+The <code>ld-linux.so</code> will <code>execute</code> apps, when resolve the <code>libs</code>.</p>
+<p>To run <code>aircrack-ng</code>, I should have some <code>libs</code> in my system, I could use the <code>libs</code> from <code>wifislax</code> too.
+Here, I have multi <code>libs</code> of linux <code>wifislax</code> in current directory.</p>
+<pre><code class="language-bash">LD_LIBRARY_PATH=$PWD/lib:$PWD/usr/lib ./ld-linux.so.2 ./aircrack-ng --help
+</code></pre>
+<h3 id="complex-apps"><a class="header" href="#complex-apps">Complex apps</a></h3>
+<p>for exemple, when apps wrap by bash scripts, like:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+aircrack-ng --help
+</code></pre>
+<p>the <code>ld-linux.so</code> cannot launch this script, to resorve this probleme:</p>
+<ul>
+<li>recreate bash script</li>
+<li>use <code>export LD_LIBRARY_PATH</code></li>
+</ul>
+<h3 id="ls-linuxso-problems"><a class="header" href="#ls-linuxso-problems"><code>ls-linux.so</code> problems</a></h3>
+<p>When useing <code>export</code>, how to tell linux what <code>lib-linux.so</code> should use, <code>lib-linux.so.2</code> or <code>lib-linux.so3</code> or <code>$PWD/lib/ld-linux.so.2</code>…</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="pytorch"><a class="header" href="#pytorch">PyTorch</a></h1>
+<hr />
+<p>welcome to the manual for installing the <code>pytorch</code> python library in Linux(<code>Voidlinux</code>)
+we should look <a href="https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with">here</a>
+To install <code>pytorch</code> you should get right version for:</p>
+<ul>
+<li><code>Nvidia driver</code></li>
+<li><code>cuda or cudatoolkit or pytorch-cuda</code></li>
+<li><code>cuDNN</code></li>
+<li><code>pytorch</code></li>
+<li><code>cuDNN</code></li>
+</ul>
+<hr />
+<h2 id="1-find-versions"><a class="header" href="#1-find-versions">1. Find Versions</a></h2>
+<h3 id="nvidia-driver-version"><a class="header" href="#nvidia-driver-version">nvidia driver version</a></h3>
+<p>simple way is install the latest version of driver, and look at the output of <code>dmsg</code> to find the recommend version of nvidia driver, for me: <code>GeForce 820m</code> is <code>nvidia390</code></p>
+<h3 id="cuda-version"><a class="header" href="#cuda-version">cuda version</a></h3>
+<p>You must choose a <code>cuda</code> version that compatible with your <code>driver</code>, and with <code>Compute Capability</code></p>
+<ul>
+<li>[driver] check driver <a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-compatibility">here</a></li>
+<li>[Compute Capability] Look here for <a href="https://developer.nvidia.com/cuda-gpus">new</a> or (legacy)[https://developer.nvidia.com/cuda-legacy-gpus] to get the <code>Compute Capability</code>.</li>
+</ul>
+<p>for me:
+- the new cuda version that support my driver <code>nvidia390</code> is <code>CUDA 9.1 (9.1.85)</code>
+- the <code>Compute Capability</code> for <code>nvidia 820m</code> is 2.1 <code>firmi</code>, that compatible with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2.1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8.0</span></span></span></span></p>
+<p>so i will try with <code>cuda 9.0 and cuda 8.0</code></p>
+<h3 id="cudnn"><a class="header" href="#cudnn">cuDNN</a></h3>
+<p>go to <a href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN</a> website, and search for <code>cuDNN</code> version that comatible with you version pf <code>cuda</code> that already get already, you can get something like that.</p>
+<ul>
+<li><code>Download cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x</code></li>
+<li><code>Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 9.0</code>
+if you your <code>cuda v9.0</code> you should use <code>cuDNN v7.6.5</code></li>
+</ul>
+<h3 id="pytorch-1"><a class="header" href="#pytorch-1">PyTorch</a></h3>
+<p>to get the right version for <code>pytorch</code> that conforme with <code>cudatoolkit</code> go to <a href="https://pytorch.org/get-started/previous-versions/">this website</a>
+for me i get:</p>
+<pre><code class="language-bash">conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
+</code></pre>
+<h2 id="2-install"><a class="header" href="#2-install">2. install</a></h2>
+<hr />
+<h3 id="install-nvidia390"><a class="header" href="#install-nvidia390">install <code>nvidia390</code></a></h3>
+<pre><code class="language-bash">sudo xbps-install -S nvidia390
+</code></pre>
+<h3 id="cuda-101"><a class="header" href="#cuda-101">cuda 10.1</a></h3>
+<pre><code class="language-bash">wget -c https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run
+
+sudo sh cuda_10.1.105_418.39_linux.run --silent --toolkit --override --tmpdir=$PWD/dir3
+</code></pre>
+<p>TODO:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+fixed gcc12 unssuprted by <code>--override</code> flag</li>
+<li><input disabled="" type="checkbox"/>
+install <code>gcc12</code> by <code>xbps</code></li>
+</ul>
+<h3 id="conda"><a class="header" href="#conda">conda</a></h3>
+<p>Requirement:</p>
+<ul>
+<li><code>python3.7.5</code></li>
+<li><code>pytorch=1.3.1</code></li>
+<li><code>torchvision=0.4.2</code></li>
+<li><code>cudatoolkit=9.2.148</code></li>
+<li><code>cudnn=7.6.3</code></li>
+</ul>
+<pre><code class="language-bash">conda create --yes -n env5 python=3.7
+conda install \
+        pytorch=1.3.1 \
+        torchvision=0.4.2 \
+        cudatoolkit=9.2.148 \
+        cudnn=7.6.3 \
+      -c pytorch
+</code></pre>
+<pre><code class="language-bash">conda install \
+        pytorch=1.1.0 \
+        torchvision=0.3.0 \
+        cudatoolkit=9.0 \
+        cudnn=7.5 \
+      -c pytorch
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
