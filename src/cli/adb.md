@@ -30,3 +30,10 @@ connect using the `ip` of my phone
 adb connect 192.168.82.207:5555
 ```
 
+```
+adb devices
+adb tcpip 5555
+adb connect $(resolveip):5555
+adb usb
+adb disconnect
+```
