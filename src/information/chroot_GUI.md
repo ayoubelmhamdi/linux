@@ -1,3 +1,8 @@
+# fix xrdb
+```bash
+xauth +
+```
+
 # How to open DISPLAY in chroot envirenmet
 - get auth key  
 
