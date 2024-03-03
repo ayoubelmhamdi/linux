@@ -14,5 +14,4 @@ preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/ayoubelmhamdi/linux"
 edit-url-template = "https://github.com/ayoubelmhamdi/linux/tree/master/{path}"
 
-[output.katex]
 [preprocessor.katex]
