@@ -56,6 +56,7 @@ ______________________________________________________________________
 
 - [FIX](./fix/README.md)
   - [sound](./fix/fix-sound.md)
+  - [fix-bluetooth](./fix/fix-bluetooth.md)
   - [tmux](./fix/fix-tmux.md)
   - [zsh](./fix/fix-zsh.md)
   - [systemd](./fix/systemd.md)
