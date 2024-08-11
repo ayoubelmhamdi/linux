@@ -31,5 +31,5 @@ add_dracutmodules+=" resume "
 Use the `linux<x>.<y>`
 ```bash
 uname -r
-xbps-reconfigure -f linux5.18
+sudo xbps-reconfigure -f linux5.18
 ```
