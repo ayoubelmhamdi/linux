@@ -800,12 +800,17 @@ If issues persist, additional debugging may be required, such as checking system
 <pre><code class="language-bash">ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color
 export TERM=xterm-256color
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h3 id="service-for-dbus-notify"><a class="header" href="#service-for-dbus-notify">Service for <code>dbus notify</code></a></h3>
-<pre><code>xbps-install -Sy notify-osd
-
-# export some variables
-eval `dbus-launch --auto-syntax`
+<div style="break-before: page; page-break-before: always;"></div><h3 id="notify"><a class="header" href="#notify">notify</a></h3>
+<pre><code class="language-bash">xbps-install -Sy notify-osd
 </code></pre>
+<h1 id="export-some-variables"><a class="header" href="#export-some-variables">export some variables</a></h1>
+<pre><code class="language-bash">eval `dbus-launch --auto-syntax`
+</code></pre>
+<h3 id="elogind"><a class="header" href="#elogind">elogind</a></h3>
+<ul>
+<li><code>elogind</code> could be essentiel to initialise <code>$XDG_RUNTIME_DIR</code> to <code>/run/user/1000</code>.</li>
+<li>but <code>elogind</code> could be make contradiction with dwm when it's run <code>dbus-run-session dwm</code>.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="syntax-highlight"><a class="header" href="#syntax-highlight">Syntax Highlight</a></h1>
 <p><a href="https://github.com/rust-lang/mdBook/issues/1459">issue</a></p>
 <p>From <a href="https://highlightjs.org/download/">highlightjs.org/download</a>, I specified only few <strong>languages</strong>, to download them</p>
@@ -1025,7 +1030,7 @@ add_dracutmodules+=" resume "
 </ul>
 <p>Use the <code>linux&lt;x&gt;.&lt;y&gt;</code></p>
 <pre><code class="language-bash">uname -r
-xbps-reconfigure -f linux5.18
+sudo xbps-reconfigure -f linux5.18
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="must-install-tow-wrt-lib-for-libinput"><a class="header" href="#must-install-tow-wrt-lib-for-libinput">must install tow wrt lib for libinput</a></h1>
 <pre><code class="language-bash">\$ xbps-install -Sy libinput-devel wlroots-devel xorg-server-xwayland wayland-devel

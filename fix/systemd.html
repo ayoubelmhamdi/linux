@@ -148,12 +148,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h3 id="service-for-dbus-notify"><a class="header" href="#service-for-dbus-notify">Service for <code>dbus notify</code></a></h3>
-<pre><code>xbps-install -Sy notify-osd
-
-# export some variables
-eval `dbus-launch --auto-syntax`
+                        <h3 id="notify"><a class="header" href="#notify">notify</a></h3>
+<pre><code class="language-bash">xbps-install -Sy notify-osd
 </code></pre>
+<h1 id="export-some-variables"><a class="header" href="#export-some-variables">export some variables</a></h1>
+<pre><code class="language-bash">eval `dbus-launch --auto-syntax`
+</code></pre>
+<h3 id="elogind"><a class="header" href="#elogind">elogind</a></h3>
+<ul>
+<li><code>elogind</code> could be essentiel to initialise <code>$XDG_RUNTIME_DIR</code> to <code>/run/user/1000</code>.</li>
+<li>but <code>elogind</code> could be make contradiction with dwm when it's run <code>dbus-run-session dwm</code>.</li>
+</ul>
 
                     </main>
 
