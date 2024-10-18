@@ -1,6 +1,24 @@
 # FIX SOUNDS
 
 # PIPEWIRE
+```bash
+sudo xbps-install -Sy pipewire wireplumber wireplumber-elogind bluez libspa-bluetooth rtkit 
+sudo ln -sv /etc/sv/rtkit /var/service
+sudo ln -sv /etc/sv/bluetoothd /var/service
+```
+
+- config `pipewire` using user config.
+
+```bash
+~/.config/pipewire/
+    └── pipewire.conf.d/
+        ├── 10-wireplumber.conf -> /usr/share/examples/wireplumber/10-wireplumber.conf
+        └── 20-pipewire-pulse.conf -> /usr/share/examples/pipewire/20-pipewire-pulse.conf
+```
+
+
+
+# OLD STEPS
 install [wireplump-elogind](http://) for shared object that need elogind and active `sv status elogind`
 active pipewire-pulse by uncomment this line
 ```
@@ -25,7 +43,7 @@ we can change sound volume using to `99%` by:
 $ pactl set-sink-volume 0 99%
 ```
 
-# OLD
+# OLD 2
 -------------
 - [Linux: ALSA lib pcm_dmix.c:1108:(snd_pcm_dmix_open) unable to open slave](https://dev.to/setevoy/linux-alsa-lib-pcmdmixc1108sndpcmdmixopen-unable-to-open-slave-38on)
 
