@@ -34,6 +34,7 @@ ______________________________________________________________________
   - [Generate keys](./ssh/keys.md)
   - [Github](./ssh/github.md)
   - [Gitlab](./ssh/gitlab.md)
+  - [forward ip and port](./ssh/forward.md)
 - [Mail](./mail.md)
 
 #
