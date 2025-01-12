@@ -48,6 +48,7 @@ ______________________________________________________________________
   - [Stow](./cli/stow.md)
   - [Squashfs](./cli/squashfs.md)
   - [Man](./cli/man.md)
+  - [Pdf](./pdf.md)
   - [adb](./cli/adb.md)
   - [Grub](./cli/grub.md)
   - [Gdrive](./cli/gdrive.md)
