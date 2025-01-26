@@ -916,7 +916,10 @@ If issues persist, additional debugging may be required, such as checking system
 <li>if <code>screen-256color-bc</code> cause problem with zsh/kitty dont initialise <code>\$TERM</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<p>if you want to use <code>export TERM=xterm-256color</code> in <code>.zshrc</code> instance of <code>export TERM=xterm</code></p>
+<h2 id="zsh-input-and-typing-handled-uncorrected"><a class="header" href="#zsh-input-and-typing-handled-uncorrected">zsh input and typing handled uncorrected</a></h2>
+<p>check if <code>terminfo</code> is build correctly, especially with <code>suckless/st</code>, in this case, we can use <code>sudo make install clean</code>.</p>
+<h2 id="force-using-xterm-256color"><a class="header" href="#force-using-xterm-256color">force using xterm-256color</a></h2>
+<p>if you want to use <code>export TERM=xterm-256color</code> in <code>.zshrc</code> instead of <code>export TERM=xterm</code></p>
 <pre><code class="language-bash">ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color
 export TERM=xterm-256color
 </code></pre>
@@ -1180,10 +1183,13 @@ sudo xbps-reconfigure -f linux5.18
 <pre><code class="language-bash">\$ inxi -Fxxxz
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="fix-xrdb"><a class="header" href="#fix-xrdb">fix xrdb</a></h1>
+<h3 id="drivers"><a class="header" href="#drivers">Drivers</a></h3>
+<p>booted system boot_kernel_version=<code>$(uname -r)</code>
+if /mnt/chroot_system depend on some drivers, it's try to load the drivers from /mnt/chroot_system/lib/modules/$boot_kernel_version/, so it's easy to install the some kernel version in two systems or link the chroot system with bootable system, then try to install modules in bootable kernel.</p>
+<h3 id="fix-xrdb"><a class="header" href="#fix-xrdb">fix xrdb</a></h3>
 <pre><code class="language-bash">xauth +
 </code></pre>
-<h1 id="how-to-open-display-in-chroot-envirenmet"><a class="header" href="#how-to-open-display-in-chroot-envirenmet">How to open DISPLAY in chroot envirenmet</a></h1>
+<h3 id="how-to-open-display-in-chroot-envirenmet"><a class="header" href="#how-to-open-display-in-chroot-envirenmet">How to open DISPLAY in chroot envirenmet</a></h3>
 <ul>
 <li>get auth key</li>
 </ul>

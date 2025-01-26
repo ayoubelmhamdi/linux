@@ -149,7 +149,10 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<p>if you want to use <code>export TERM=xterm-256color</code> in <code>.zshrc</code> instance of <code>export TERM=xterm</code></p>
+<h2 id="zsh-input-and-typing-handled-uncorrected"><a class="header" href="#zsh-input-and-typing-handled-uncorrected">zsh input and typing handled uncorrected</a></h2>
+<p>check if <code>terminfo</code> is build correctly, especially with <code>suckless/st</code>, in this case, we can use <code>sudo make install clean</code>.</p>
+<h2 id="force-using-xterm-256color"><a class="header" href="#force-using-xterm-256color">force using xterm-256color</a></h2>
+<p>if you want to use <code>export TERM=xterm-256color</code> in <code>.zshrc</code> instead of <code>export TERM=xterm</code></p>
 <pre><code class="language-bash">ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color
 export TERM=xterm-256color
 </code></pre>

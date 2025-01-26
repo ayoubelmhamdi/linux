@@ -149,10 +149,13 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="fix-xrdb"><a class="header" href="#fix-xrdb">fix xrdb</a></h1>
+<h3 id="drivers"><a class="header" href="#drivers">Drivers</a></h3>
+<p>booted system boot_kernel_version=<code>$(uname -r)</code>
+if /mnt/chroot_system depend on some drivers, it's try to load the drivers from /mnt/chroot_system/lib/modules/$boot_kernel_version/, so it's easy to install the some kernel version in two systems or link the chroot system with bootable system, then try to install modules in bootable kernel.</p>
+<h3 id="fix-xrdb"><a class="header" href="#fix-xrdb">fix xrdb</a></h3>
 <pre><code class="language-bash">xauth +
 </code></pre>
-<h1 id="how-to-open-display-in-chroot-envirenmet"><a class="header" href="#how-to-open-display-in-chroot-envirenmet">How to open DISPLAY in chroot envirenmet</a></h1>
+<h3 id="how-to-open-display-in-chroot-envirenmet"><a class="header" href="#how-to-open-display-in-chroot-envirenmet">How to open DISPLAY in chroot envirenmet</a></h3>
 <ul>
 <li>get auth key</li>
 </ul>
