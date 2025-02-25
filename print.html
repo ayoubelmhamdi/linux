@@ -581,9 +581,11 @@ the server (ports like 3000 and 80 may not be valid). After running the server
 We need to establish a forward tunnel to the server, mapping the server's port
 to a local port (e.g., 3001).</p>
 <pre><code class="language-bash">ssh -p 8022 -L 3001:localhost:8080 -L 3002:localhost:8081 server_user@server_ip
+# OR
+ssh -p 8022 -L 8080:localhost:8080 -L 8081:localhost:8081 server_user@server_ip
 </code></pre>
 <p>Now, the server's content will be accessible locally via
-<code>http://127.0.0.1:3001/</code>.</p>
+<code>http://127.0.0.1:3001/</code> or <code>http://127.0.0.1:8080/</code>.</p>
 <p>Therefore, to ensure proper website functionality, we must identify an
 available port on the server and utilize SSH tunnel forwarding.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
