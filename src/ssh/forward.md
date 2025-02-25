@@ -15,10 +15,12 @@ to a local port (e.g., 3001).
 
 ```bash
 ssh -p 8022 -L 3001:localhost:8080 -L 3002:localhost:8081 server_user@server_ip
+# OR
+ssh -p 8022 -L 8080:localhost:8080 -L 8081:localhost:8081 server_user@server_ip
 ```
 
 Now, the server's content will be accessible locally via
-`http://127.0.0.1:3001/`.
+`http://127.0.0.1:3001/` or `http://127.0.0.1:8080/`.
 
 Therefore, to ensure proper website functionality, we must identify an
 available port on the server and utilize SSH tunnel forwarding. 
