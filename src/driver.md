@@ -1,20 +1,29 @@
 # Driver
 
-### get the name of kernel module for all drivers
+### list the kernel modules:
+this list shown the the name of kernel module for the used kernel driver.
 ```bash
 lspci -knn
 ```
+
 ### how to disable `nouveau`
 ```bash
-cat /etc/default/grub
-```
-```
+$ cat /etc/modprobe.d/nouveau_blacklist.conf
+# To block nouveau drivers: https://askubuntu.com/questions/841876/how-to-disable-nouveau-kernel-driver
+blacklist nouveau
+options nouveau modeset=0
+
+$ uname -r
+6.12
+$ sudo xbps-reconfigure -f linux6.12
+
+
+$ cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
+$ update-grub
 ```
-```bash
-update-grub
-```
-### get the used `GPU` at now
+
+### get the used `GPU` now
 ```bash
 glxinfo | grep 'renderer string'
 ```
@@ -22,8 +31,8 @@ glxinfo | grep 'renderer string'
 ### Use two carts graphic for power performance: optimums
 - using the `Proprietary` driver `nvidia`
 
-By default, all apps will run by ` internal GPU`, but if you want to run an app with `GPU`
-change the value of `DRI_PRIME` to `1`.
+By default, all apps will run by ` internal GPU`, but if you want to run an app
+with `GPU` change the value of `DRI_PRIME` to `1`.
 ```bash
 DRI_PRIME=1 app
 ```
@@ -35,11 +44,10 @@ xbps-install -S nvidia # or nvidia470 or nvidia390
 ```
 - check if this driver wasn't marking as `blacklist`
 
- verify at `/etc/modprobe.d/nouveau_blacklist.conf`, `/usr/lib/modprobe.d/nvidia.conf`,
- or `/usr/lib/modprobe.d/nvidia-dkms.conf` by commenting it out:
-```bash
-#blacklist nouveau
-```
+verify at `/etc/modprobe.d/nouveau_blacklist.conf`,
+`/usr/lib/modprobe.d/nvidia.conf`, or `/usr/lib/modprobe.d/nvidia-dkms.conf` by
+commenting it out.
+
 nvidia require module `bbswitch`
 
 ```bash
@@ -55,16 +63,6 @@ lsusb -t
 inxi -Fxxxz
 ```
 
-# remove (uninstall/block) driver like nouveau
-at `/etc/modprobe.d/nouveau_blacklist.conf`
-```bash
-blacklist nouveau
-options nouveau modeset=0
-```
-then: for `5.19`
-```bash
-xbps-reconfigure -f linux5.19
-```
 
 ### to remove extra dkms modules
 ```bash
