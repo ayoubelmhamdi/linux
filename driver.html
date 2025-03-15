@@ -150,25 +150,34 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="driver"><a class="header" href="#driver">Driver</a></h1>
-<h3 id="get-the-name-of-kernel-module-for-all-drivers"><a class="header" href="#get-the-name-of-kernel-module-for-all-drivers">get the name of kernel module for all drivers</a></h3>
+<h3 id="list-the-kernel-modules"><a class="header" href="#list-the-kernel-modules">list the kernel modules:</a></h3>
+<p>this list shown the the name of kernel module for the used kernel driver.</p>
 <pre><code class="language-bash">lspci -knn
 </code></pre>
 <h3 id="how-to-disable-nouveau"><a class="header" href="#how-to-disable-nouveau">how to disable <code>nouveau</code></a></h3>
-<pre><code class="language-bash">cat /etc/default/grub
+<pre><code class="language-bash">$ cat /etc/modprobe.d/nouveau_blacklist.conf
+# To block nouveau drivers: https://askubuntu.com/questions/841876/how-to-disable-nouveau-kernel-driver
+blacklist nouveau
+options nouveau modeset=0
+
+$ uname -r
+6.12
+$ sudo xbps-reconfigure -f linux6.12
+
+
+$ cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
+$ update-grub
 </code></pre>
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nouveau.modeset=0"
-</code></pre>
-<pre><code class="language-bash">update-grub
-</code></pre>
-<h3 id="get-the-used-gpu-at-now"><a class="header" href="#get-the-used-gpu-at-now">get the used <code>GPU</code> at now</a></h3>
+<h3 id="get-the-used-gpu-now"><a class="header" href="#get-the-used-gpu-now">get the used <code>GPU</code> now</a></h3>
 <pre><code class="language-bash">glxinfo | grep 'renderer string'
 </code></pre>
 <h3 id="use-two-carts-graphic-for-power-performance-optimums"><a class="header" href="#use-two-carts-graphic-for-power-performance-optimums">Use two carts graphic for power performance: optimums</a></h3>
 <ul>
 <li>using the <code>Proprietary</code> driver <code>nvidia</code></li>
 </ul>
-<p>By default, all apps will run by <code> internal GPU</code>, but if you want to run an app with <code>GPU</code>
-change the value of <code>DRI_PRIME</code> to <code>1</code>.</p>
+<p>By default, all apps will run by <code> internal GPU</code>, but if you want to run an app
+with <code>GPU</code> change the value of <code>DRI_PRIME</code> to <code>1</code>.</p>
 <pre><code class="language-bash">DRI_PRIME=1 app
 </code></pre>
 <ul>
@@ -180,10 +189,9 @@ change the value of <code>DRI_PRIME</code> to <code>1</code>.</p>
 <ul>
 <li>check if this driver wasn't marking as <code>blacklist</code></li>
 </ul>
-<p>verify at <code>/etc/modprobe.d/nouveau_blacklist.conf</code>, <code>/usr/lib/modprobe.d/nvidia.conf</code>,
-or <code>/usr/lib/modprobe.d/nvidia-dkms.conf</code> by commenting it out:</p>
-<pre><code class="language-bash">#blacklist nouveau
-</code></pre>
+<p>verify at <code>/etc/modprobe.d/nouveau_blacklist.conf</code>,
+<code>/usr/lib/modprobe.d/nvidia.conf</code>, or <code>/usr/lib/modprobe.d/nvidia-dkms.conf</code> by
+commenting it out.</p>
 <p>nvidia require module <code>bbswitch</code></p>
 <pre><code class="language-bash">xbps-install -S bbswitch
 </code></pre>
@@ -191,14 +199,6 @@ or <code>/usr/lib/modprobe.d/nvidia-dkms.conf</code> by commenting it out:</p>
 <pre><code class="language-bash">lsusb -t
 </code></pre>
 <pre><code class="language-bash">inxi -Fxxxz
-</code></pre>
-<h1 id="remove-uninstallblock-driver-like-nouveau"><a class="header" href="#remove-uninstallblock-driver-like-nouveau">remove (uninstall/block) driver like nouveau</a></h1>
-<p>at <code>/etc/modprobe.d/nouveau_blacklist.conf</code></p>
-<pre><code class="language-bash">blacklist nouveau
-options nouveau modeset=0
-</code></pre>
-<p>then: for <code>5.19</code></p>
-<pre><code class="language-bash">xbps-reconfigure -f linux5.19
 </code></pre>
 <h3 id="to-remove-extra-dkms-modules"><a class="header" href="#to-remove-extra-dkms-modules">to remove extra dkms modules</a></h3>
 <pre><code class="language-bash">dkms status
