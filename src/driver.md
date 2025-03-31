@@ -8,6 +8,9 @@ lspci -knn
 
 ### how to disable `nouveau`
 ```bash
+$ xbps-remove -vROo -F mesa-nouveau-dri xf86-video-nouveau
+$ sudo xbps-install -S bbswitch nvidia390 nvidia390-opencl
+
 $ cat /etc/modprobe.d/nouveau_blacklist.conf
 # To block nouveau drivers: https://askubuntu.com/questions/841876/how-to-disable-nouveau-kernel-driver
 blacklist nouveau
