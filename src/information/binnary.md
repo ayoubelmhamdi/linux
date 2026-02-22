@@ -24,3 +24,23 @@ the `ld-linux.so` cannot launch this script, to resorve this probleme:
 
 ### `ls-linux.so` problems
 When useing `export`, how to tell linux what `lib-linux.so` should use, `lib-linux.so.2` or `lib-linux.so3` or `$PWD/lib/ld-linux.so.2`…
+
+### XDG Path Overrides
+
+`/usr/share` is related to `XDG_DATA_DIRS` directly. We can use another location as a replacement for `/usr/share` by exporting it:
+
+```bash
+export XDG_DATA_DIRS=/tmp/new_2/usr/share:/usr/local/share:/usr/share
+```
+
+This is very useful for testing packages from other Linux distros after extracting/decompressing them, without needing root or installing anything system-wide.
+
+
+### Python Path Overrides
+For the Python environment, use `PYTHONPATH`:
+
+```bash
+export PYTHONPATH=/tmp/new_2/usr/lib/python3.14/site-packages
+```
+
+> ⚠️ Avoid a leading `:` in `PYTHONPATH` (e.g. `=:/tmp/...`) — it adds the current directory as a search path, which can cause unexpected import errors.
