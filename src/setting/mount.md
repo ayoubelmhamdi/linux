@@ -19,3 +19,13 @@ some `shared` library not word in `tmpfs/shm`, I should remount with permission 
 mount --bind /path/to/dir /new/dir
 mount -o remount,exec,bind  /new/dir
 ```
+
+# Mount USB Without Root
+
+exFAT expects `fmask=0000` by default → it shows all Linux files as `777` rather than their original permissions.
+So we need to set `fmask` and `dmask` explicitly:
+
+```bash
+sudo mount -t exfat -o uid=$(id -u),gid=$(id -g),fmask=0133,dmask=0022 /dev/sdb1 /mnt/usb
+```
+
