@@ -1,6 +1,6 @@
 # TERMUX:
 
-see (login to phone using ssh)[ssh/README.md]
+See (login to phone using ssh)[ssh/README.md]
 
 
 # AArch64 Linux → Android (Termux) compatibility notes
@@ -48,24 +48,21 @@ set Android linker:
 
 ```bash
 patchelf --set-interpreter /system/bin/linker64 ./bin
-```
-
-optional rpath (Termux libs):
-
-```bash
 patchelf --set-rpath '$PREFIX/lib' ./bin
 ```
 
-## failure patterns
 
-* `Type: EXEC` → non-PIE → rejected by linker
-* no `INTERP` → static → cannot patch
-* `libc.so.6` → glibc → not present on Android
-* missing libs → bionic vs glibc ABI mismatch
+## quick reality
 
-## tl;dr
+* `static + EXEC` → no path forward
+* `glibc` → wrong libc (Android = bionic)
+* `no INTERP` → nothing to patch
 
-* want: **ET_DYN (PIE)**
-* avoid: **ET_EXEC**
-* musl > glibc, but must be PIE
+This is ABI, not paths.
+
+```
+ET_EXEC → dead
+ET_DYN  → maybe works
+```
+
 * `patchelf` only works for dynamic PIE binaries
