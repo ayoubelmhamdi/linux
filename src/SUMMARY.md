@@ -16,6 +16,7 @@
     - [Install Arch](./arch/arch-scratch.md)
   - [Void Linux](./void/README.md)
     - [Gpu](./void/gpu.md)
+  - [Termux](./termux.md)
 
 #
 
