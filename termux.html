@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Linux - Linux docs</title>
+        <title>Termux - Linux docs</title>
 
 
         <!-- Custom HTML head -->
@@ -119,7 +119,7 @@
                         <a href="https://github.com/ayoubelmhamdi/linux" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/ayoubelmhamdi/linux/tree/master/src/README.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/ayoubelmhamdi/linux/tree/master/src/termux.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -149,50 +149,64 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<h1 id="termux"><a class="header" href="#termux">TERMUX:</a></h1>
+<p>see (login to phone using ssh)[ssh/README.md]</p>
+<h1 id="aarch64-linux--android-termux-compatibility-notes"><a class="header" href="#aarch64-linux--android-termux-compatibility-notes">AArch64 Linux → Android (Termux) compatibility notes</a></h1>
+<p>On Android/Termux, native executables use Bionic, not glibc, and the dynamic linker is typically <code>/system/bin/linker64</code>. Termux’s execution environment is different enough that patching a glibc binary to use Android’s linker is usually not sufficient.</p>
+<p>if we want to download a binnary we should check <code>*-aarch64-unknown-linux-musl</code> and maybe not work.</p>
+<h2 id="inspect"><a class="header" href="#inspect">inspect</a></h2>
+<pre><code class="language-bash">file ./bin
+readelf -hW ./bin | grep Type:
+readelf -lW ./bin | grep INTERP
+readelf -dW ./bin | grep NEEDED
+</code></pre>
+<h2 id="key-rule"><a class="header" href="#key-rule">key rule</a></h2>
+<p>if we ckeck a musl binary <code>./bin</code> and we get:</p>
+<pre><code class="language-bash">ARM64 + static + ET_EXEC + no INTERP
+</code></pre>
+<p>Native Android wants:</p>
+<pre><code class="language-bash">ARM64 + PIE (ET_DYN) + Android/bionic-compatible build
+</code></pre>
+<h2 id="decision"><a class="header" href="#decision">decision</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>case</th><th>status</th></tr></thead><tbody>
+<tr><td>ET_DYN + INTERP</td><td>patchable</td></tr>
+<tr><td>ET_DYN (static PIE)</td><td>likely OK</td></tr>
+<tr><td>ET_EXEC (static)</td><td>❌ no fix if not musl</td></tr>
+<tr><td>ET_EXEC (dynamic)</td><td>❌ no fix</td></tr>
+<tr><td>glibc-linked</td><td>❌ incompatible</td></tr>
+</tbody></table>
+</div>
+<h2 id="patch-dynamic-pie-only"><a class="header" href="#patch-dynamic-pie-only">patch (dynamic PIE only)</a></h2>
+<p>set Android linker:</p>
+<pre><code class="language-bash">patchelf --set-interpreter /system/bin/linker64 ./bin
+</code></pre>
+<p>optional rpath (Termux libs):</p>
+<pre><code class="language-bash">patchelf --set-rpath '$PREFIX/lib' ./bin
+</code></pre>
+<h2 id="failure-patterns"><a class="header" href="#failure-patterns">failure patterns</a></h2>
 <ul>
-<li><a href="./cli/index.html">CLI</a></li>
-<li><a href="./fix/index.html">FIX</a></li>
-<li><a href="./setting/index.html">SETTING</a></li>
-<li><a href="./information/index.html">INFORMATION</a></li>
+<li><code>Type: EXEC</code> → non-PIE → rejected by linker</li>
+<li>no <code>INTERP</code> → static → cannot patch</li>
+<li><code>libc.so.6</code> → glibc → not present on Android</li>
+<li>missing libs → bionic vs glibc ABI mismatch</li>
 </ul>
-<h3 id="install-module-pf-perl"><a class="header" href="#install-module-pf-perl">install module pf perl</a></h3>
-<pre><code class="language-bash">export PERL5LIB="\$HOME/.cpan/build:\$PERL5LIB"
-cpan YAML/Tiny.pm
-</code></pre>
-<h3 id="ckeck-process-if-runin"><a class="header" href="#ckeck-process-if-runin">ckeck process if runin</a></h3>
-<pre><code class="language-bash">pgrep nvim
-ps -C nginx
-ps aux | grep "nvim" | awk ' \$11 == "nvim" {print \$11}'
-</code></pre>
+<h2 id="tldr"><a class="header" href="#tldr">tl;dr</a></h2>
 <ul>
-<li>conddtion</li>
+<li>want: <strong>ET_DYN (PIE)</strong></li>
+<li>avoid: <strong>ET_EXEC</strong></li>
+<li>musl &gt; glibc, but must be PIE</li>
+<li><code>patchelf</code> only works for dynamic PIE binaries</li>
 </ul>
-<pre><code class="language-bash">if pgrep -x "gedit" &gt; /dev/null
-then
-    echo "Running"
-else
-    echo "Stopped"
-fi
-</code></pre>
-<h3 id="calcule-sha-hash"><a class="header" href="#calcule-sha-hash">calcule: sha hash</a></h3>
-<pre><code class="language-bash">xbps-install -Sy coreutils
-sha1sum
-sha256sum
-</code></pre>
-<h3 id="fix-greedy"><a class="header" href="#fix-greedy">fix greedy</a></h3>
-<pre><code class="language-bash">perl -pe 's#a.*?a#--#'
-</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="void/gpu.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="git/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -202,11 +216,11 @@ sha256sum
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="void/gpu.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="git/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
