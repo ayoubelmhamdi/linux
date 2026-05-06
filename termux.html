@@ -150,7 +150,7 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="termux"><a class="header" href="#termux">TERMUX:</a></h1>
-<p>see (login to phone using ssh)[ssh/README.md]</p>
+<p>See (login to phone using ssh)[ssh/README.md]</p>
 <h1 id="aarch64-linux--android-termux-compatibility-notes"><a class="header" href="#aarch64-linux--android-termux-compatibility-notes">AArch64 Linux → Android (Termux) compatibility notes</a></h1>
 <p>On Android/Termux, native executables use Bionic, not glibc, and the dynamic linker is typically <code>/system/bin/linker64</code>. Termux’s execution environment is different enough that patching a glibc binary to use Android’s linker is usually not sufficient.</p>
 <p>if we want to download a binnary we should check <code>*-aarch64-unknown-linux-musl</code> and maybe not work.</p>
@@ -179,22 +179,19 @@ readelf -dW ./bin | grep NEEDED
 <h2 id="patch-dynamic-pie-only"><a class="header" href="#patch-dynamic-pie-only">patch (dynamic PIE only)</a></h2>
 <p>set Android linker:</p>
 <pre><code class="language-bash">patchelf --set-interpreter /system/bin/linker64 ./bin
+patchelf --set-rpath '$PREFIX/lib' ./bin
 </code></pre>
-<p>optional rpath (Termux libs):</p>
-<pre><code class="language-bash">patchelf --set-rpath '$PREFIX/lib' ./bin
-</code></pre>
-<h2 id="failure-patterns"><a class="header" href="#failure-patterns">failure patterns</a></h2>
+<h2 id="quick-reality"><a class="header" href="#quick-reality">quick reality</a></h2>
 <ul>
-<li><code>Type: EXEC</code> → non-PIE → rejected by linker</li>
-<li>no <code>INTERP</code> → static → cannot patch</li>
-<li><code>libc.so.6</code> → glibc → not present on Android</li>
-<li>missing libs → bionic vs glibc ABI mismatch</li>
+<li><code>static + EXEC</code> → no path forward</li>
+<li><code>glibc</code> → wrong libc (Android = bionic)</li>
+<li><code>no INTERP</code> → nothing to patch</li>
 </ul>
-<h2 id="tldr"><a class="header" href="#tldr">tl;dr</a></h2>
+<p>This is ABI, not paths.</p>
+<pre><code>ET_EXEC → dead
+ET_DYN  → maybe works
+</code></pre>
 <ul>
-<li>want: <strong>ET_DYN (PIE)</strong></li>
-<li>avoid: <strong>ET_EXEC</strong></li>
-<li>musl &gt; glibc, but must be PIE</li>
 <li><code>patchelf</code> only works for dynamic PIE binaries</li>
 </ul>
 

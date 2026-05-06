@@ -420,7 +420,7 @@ sed -iE 's#(static char \*font2........).*\$#\1FiraCode\ Nerd\ Font:size=15" };#
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="termux"><a class="header" href="#termux">TERMUX:</a></h1>
-<p>see (login to phone using ssh)[ssh/README.md]</p>
+<p>See (login to phone using ssh)[ssh/README.md]</p>
 <h1 id="aarch64-linux--android-termux-compatibility-notes"><a class="header" href="#aarch64-linux--android-termux-compatibility-notes">AArch64 Linux → Android (Termux) compatibility notes</a></h1>
 <p>On Android/Termux, native executables use Bionic, not glibc, and the dynamic linker is typically <code>/system/bin/linker64</code>. Termux’s execution environment is different enough that patching a glibc binary to use Android’s linker is usually not sufficient.</p>
 <p>if we want to download a binnary we should check <code>*-aarch64-unknown-linux-musl</code> and maybe not work.</p>
@@ -449,22 +449,19 @@ readelf -dW ./bin | grep NEEDED
 <h2 id="patch-dynamic-pie-only"><a class="header" href="#patch-dynamic-pie-only">patch (dynamic PIE only)</a></h2>
 <p>set Android linker:</p>
 <pre><code class="language-bash">patchelf --set-interpreter /system/bin/linker64 ./bin
+patchelf --set-rpath '$PREFIX/lib' ./bin
 </code></pre>
-<p>optional rpath (Termux libs):</p>
-<pre><code class="language-bash">patchelf --set-rpath '$PREFIX/lib' ./bin
-</code></pre>
-<h2 id="failure-patterns"><a class="header" href="#failure-patterns">failure patterns</a></h2>
+<h2 id="quick-reality"><a class="header" href="#quick-reality">quick reality</a></h2>
 <ul>
-<li><code>Type: EXEC</code> → non-PIE → rejected by linker</li>
-<li>no <code>INTERP</code> → static → cannot patch</li>
-<li><code>libc.so.6</code> → glibc → not present on Android</li>
-<li>missing libs → bionic vs glibc ABI mismatch</li>
+<li><code>static + EXEC</code> → no path forward</li>
+<li><code>glibc</code> → wrong libc (Android = bionic)</li>
+<li><code>no INTERP</code> → nothing to patch</li>
 </ul>
-<h2 id="tldr"><a class="header" href="#tldr">tl;dr</a></h2>
+<p>This is ABI, not paths.</p>
+<pre><code>ET_EXEC → dead
+ET_DYN  → maybe works
+</code></pre>
 <ul>
-<li>want: <strong>ET_DYN (PIE)</strong></li>
-<li>avoid: <strong>ET_EXEC</strong></li>
-<li>musl &gt; glibc, but must be PIE</li>
 <li><code>patchelf</code> only works for dynamic PIE binaries</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -1056,6 +1053,52 @@ export TERM=xterm-256color
 <ul>
 <li><code>elogind</code> could be essentiel to initialise <code>$XDG_RUNTIME_DIR</code> to <code>/run/user/1000</code>.</li>
 <li>but <code>elogind</code> could be make contradiction with dwm when it's run <code>dbus-run-session dwm</code>.</li>
+<li>use <code>agetty-tty1</code> service to start Xserver meant run a tty server (i do not know way this stupidity).</li>
+<li>to fix it i try iniliaze variables manualy but <code>loginctl</code> can not read them
+correclty, so apps like <code>anydesk</code> doesnt work.</li>
+</ul>
+<pre><code class="language-bash">$ loginctl show-session "$XDG_SESSION_ID" -p Type -p Display -p TTY -p Seat -p Active
+</code></pre>
+<p>To ensure <code>anydesk</code> (as one of the stupped software on linux) i switch to use <code>lightdm</code>:</p>
+<ul>
+<li>/etc/lightdm/lightdm.conf</li>
+</ul>
+<pre><code class="language-bash">[Seat:*]
+# need to be exist a file called /usr/share/xsessions/dwm.desktop 
+user-session=dwm
+
+# hake it to run ~/.zprofile (or symlink it to ~/.profile)
+# hake it to execte ~/.xinitrc
+session-wrapper=/etc/lightdm/Xsession
+
+# change themes
+greeter-session=lightdm-gtk-greeter
+
+autologin-user=mhamdi
+autologin-user-timeout=0
+autologin-session=dwm
+</code></pre>
+<p>what services runs and maybe help:</p>
+<pre><code>$ ls /var/service         
+acpid -&gt; /etc/sv/acpid/
+agetty-tty2 -&gt; /etc/sv/agetty-tty2/
+agetty-tty3 -&gt; /etc/sv/agetty-tty3/
+agetty-tty4 -&gt; /etc/sv/agetty-tty4/
+agetty-tty5 -&gt; /etc/sv/agetty-tty5/
+agetty-tty6 -&gt; /etc/sv/agetty-tty6/
+udevd -&gt; /etc/sv/udevd/
+dbus -&gt; /etc/sv/dbus/
+lightdm -&gt; /etc/sv/lightdm/
+nanoklogd -&gt; /etc/sv/nanoklogd/
+socklog-unix -&gt; /etc/sv/socklog-unix/
+</code></pre>
+<ul>
+<li>
+<p>Avoid use <code>bash</code> or <code>zsh</code> features, <code>Xsession</code> use sh shell.</p>
+</li>
+<li>
+<p>This file also store user-session (i3 or dwm) <code>/var/lib/AccountsService/users/mhamdi</code>, why i do not kown this stupidity</p>
+</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="syntax-highlight"><a class="header" href="#syntax-highlight">Syntax Highlight</a></h1>
