@@ -1,7 +1,9 @@
 # manual install certificate
 
-downaoad a certificate should rename into crt and located into `/usr/local/share/ca-certificates/`:
-/tmp/mitmproxy-ca-cert.pem → /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt
+first, downaoad the certificate, and we should rename it, to be end with `.crt` and located into `/usr/local/share/ca-certificates/`:
 
-
-sudo update-ca-certificates
+```bash
+$ wget ....
+$ copy  /tmp/mitmproxy-ca-cert.pem → /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt
+$ sudo update-ca-certificates
+```
