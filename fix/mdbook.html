@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "../searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c982f4d5.js"></script>
+        <script src="../toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,17 +180,16 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="syntax-highlight"><a class="header" href="#syntax-highlight">Syntax Highlight</a></h1>
+                        <h1 id="syntax-highlight"><a class="header" href="#syntax-highlight">Syntax Highlight</a></h1>
 <p><a href="https://github.com/rust-lang/mdBook/issues/1459">issue</a></p>
 <p>From <a href="https://highlightjs.org/download/">highlightjs.org/download</a>, I specified only few <strong>languages</strong>, to download them</p>
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="https://user-images.githubusercontent.com/34358145/197431856-6e785f9b-6165-4b76-8eb5-7e572148391d.png" alt="image"><span class="img-wrapper"><img src="https://user-images.githubusercontent.com/34358145/197431856-6e785f9b-6165-4b76-8eb5-7e572148391d.png" alt="image"></span></label></p>
 <p>I got this zip</p>
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="https://user-images.githubusercontent.com/34358145/197432280-72df9430-21d9-4531-8641-7a3d620371aa.png" alt="image"><span class="img-wrapper"><img src="https://user-images.githubusercontent.com/34358145/197432280-72df9430-21d9-4531-8641-7a3d620371aa.png" alt="image"></span></label></p>
 <p>I have chosen <code>highlight.min.js</code>, by:</p>
-<pre><code>cp ~/Download/highlight.min.js ~/mybook/theme/highlight.js
+<pre><code class="language-bash">cp ~/Download/highlight.min.js ~/mybook/theme/highlight.js
 </code></pre>
-<pre><code>├── book.toml
+<pre><code class="language-text">├── book.toml
 ├── src
 │   ├── chapter_1.md
 │   └── SUMMARY.md
@@ -200,7 +199,7 @@
 </code></pre>
 <h1 id="missing"><a class="header" href="#missing">MISSING</a></h1>
 <p><code>highlight.css</code> can’t load from original <a href="https://github.com/highlightjs/highlight.js/tree/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles">highlightjs</a> repo automatic</p>
-<pre><code>wget https://github.com/highlightjs/highlight.js/blob/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles/base16/github.css \
+<pre><code class="language-bash">wget https://github.com/highlightjs/highlight.js/blob/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles/base16/github.css \
  -O ~/mybook/theme/highlight.css
 </code></pre>
 <p>but I can load it manually with some <code>extension</code> like <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en">stylus</a></p>

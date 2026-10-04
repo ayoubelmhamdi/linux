@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "../searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c982f4d5.js"></script>
+        <script src="../toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,8 +180,7 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="pytorch"><a class="header" href="#pytorch">PyTorch</a></h1>
+                        <h1 id="pytorch"><a class="header" href="#pytorch">PyTorch</a></h1>
 <hr>
 <p>welcome to the manual for installing the <code>pytorch</code> python library in Linux(<code>Voidlinux</code>)
 we should look <a href="https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with">here</a>
@@ -205,7 +204,7 @@ To install <code>pytorch</code> you should get right version for:</p>
 </ul>
 <p>for me:
 - the new cuda version that support my driver <code>nvidia390</code> is <code>CUDA 9.1 (9.1.85)</code>
-- the <code>Compute Capability</code> for <code>nvidia 820m</code> is 2.1 <code>firmi</code>, that compatible with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2.1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8.0</span></span></span></span></p>
+- the <code>Compute Capability</code> for <code>nvidia 820m</code> is 2.1 <code>firmi</code>, that compatible with $v2.1 &lt; cuda &lt; 8.0$</p>
 <p>so i will try with <code>cuda 9.0 and cuda 8.0</code></p>
 <h3 id="cudnn"><a class="header" href="#cudnn">cuDNN</a></h3>
 <p>go to <a href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN</a> website, and search for <code>cuDNN</code> version that comatible with you version pf <code>cuda</code> that already get already, you can get something like that.</p>

@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "../searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c982f4d5.js"></script>
+        <script src="../toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,8 +180,7 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="connect-by-adb"><a class="header" href="#connect-by-adb">connect by adb</a></h1>
+                        <h1 id="connect-by-adb"><a class="header" href="#connect-by-adb">connect by adb</a></h1>
 <h3 id="usb"><a class="header" href="#usb">usb</a></h3>
 <ul>
 <li>Enable <code>usb debugging</code></li>
@@ -200,7 +199,7 @@ droidcam-cli 127.0.0.1 4747
 <ul>
 <li>get the serial using the usb cable for the first time</li>
 </ul>
-<pre><code>\$ adb devices
+<pre><code class="language-bash">\$ adb devices
 </code></pre>
 <p>connect using the <code>ip</code> of my phone</p>
 <ul>
@@ -213,7 +212,7 @@ droidcam-cli 127.0.0.1 4747
 </ul>
 <pre><code class="language-bash">adb connect 192.168.82.207:5555
 </code></pre>
-<pre><code>adb devices
+<pre><code class="language-bash">adb devices
 adb tcpip 5555
 adb connect $(resolveip):5555
 adb usb

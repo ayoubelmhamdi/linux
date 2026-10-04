@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-c982f4d5.js"></script>
+        <script src="toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,36 +180,35 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="configuring-neomutt-with-gmail-oauth2-using-mutt-wizard"><a class="header" href="#configuring-neomutt-with-gmail-oauth2-using-mutt-wizard">Configuring NeoMutt with Gmail OAuth2 using mutt-wizard</a></h1>
+                        <h1 id="configuring-neomutt-with-gmail-oauth2-using-mutt-wizard"><a class="header" href="#configuring-neomutt-with-gmail-oauth2-using-mutt-wizard">Configuring NeoMutt with Gmail OAuth2 using mutt-wizard</a></h1>
 <p>This guide will walk you through setting up NeoMutt with Gmail using OAuth2 authentication via mutt-wizard.</p>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <p>First, install the necessary dependencies:</p>
-<pre><code>sudo xbps-install -Sy cyrus-sasl-xoauth2 neomutt curl isync msmtp pass pam-gnupg notmuch abook urlview mpop
+<pre><code class="language-bash">sudo xbps-install -Sy cyrus-sasl-xoauth2 neomutt curl isync msmtp pass pam-gnupg notmuch abook urlview mpop
 </code></pre>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <ol>
 <li>Clone and install mutt-wizard:</li>
 </ol>
-<pre><code>git clone https://github.com/lukesmithxyz/mutt-wizard
+<pre><code class="language-bash">git clone https://github.com/lukesmithxyz/mutt-wizard
 cd mutt-wizard
 sudo make install
 </code></pre>
 <ol start="2">
 <li>Generate a GPG key:</li>
 </ol>
-<pre><code>gpg --full-generate-key
+<pre><code class="language-bash">gpg --full-generate-key
 </code></pre>
 <ol start="3">
 <li>Initialize pass with your email:</li>
 </ol>
-<pre><code>pass init ayoub@gmail.com
+<pre><code class="language-bash">pass init ayoub@gmail.com
 </code></pre>
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <ol>
 <li>Run mutt-wizard to add your Gmail account:</li>
 </ol>
-<pre><code>mw -a ayoub@gmail.com
+<pre><code class="language-bash">mw -a ayoub@gmail.com
 </code></pre>
 <ol start="2">
 <li>
@@ -224,11 +223,11 @@ sudo make install
 you will see a key like this:</p>
 </li>
 </ol>
-<pre><code>vJkl jtjk weqc rwzi
+<pre><code class="language-text">vJkl jtjk weqc rwzi
 </code></pre>
 <h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
 <p>If you enter an incorrect password, you may need to remove the stored password:</p>
-<pre><code>rm /home/$USER/.password-store -rf
+<pre><code class="language-bash">rm /home/$USER/.password-store -rf
 </code></pre>
 <p>Then, re-run the mutt-wizard configuration process.</p>
 

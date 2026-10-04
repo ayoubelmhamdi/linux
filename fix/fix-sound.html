@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "../searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c982f4d5.js"></script>
+        <script src="../toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,8 +180,7 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="fix-sounds"><a class="header" href="#fix-sounds">FIX SOUNDS</a></h1>
+                        <h1 id="fix-sounds"><a class="header" href="#fix-sounds">FIX SOUNDS</a></h1>
 <h1 id="pipewire"><a class="header" href="#pipewire">PIPEWIRE</a></h1>
 <pre><code class="language-bash">sudo xbps-install -Sy pipewire wireplumber wireplumber-elogind bluez libspa-bluetooth rtkit 
 sudo ln -sv /etc/sv/rtkit /var/service
@@ -198,7 +197,7 @@ sudo ln -sv /etc/sv/bluetoothd /var/service
 <h1 id="old-steps"><a class="header" href="#old-steps">OLD STEPS</a></h1>
 <p>install <a href="http://">wireplump-elogind</a> for shared object that need elogind and active <code>sv status elogind</code>
 active pipewire-pulse by uncomment this line</p>
-<pre><code>    #{ path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
+<pre><code class="language-text">    #{ path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
 </code></pre>
 <h2 id="startenable"><a class="header" href="#startenable">start/Enable</a></h2>
 <p>no need any services, it’s can run with autostart apps or .xinitrc …</p>
@@ -210,7 +209,7 @@ wireplumber &amp;
 <p>we have <a href="http://">pavucontrol</a> and <a href="http://">helvum</a></p>
 <h2 id="sound-control"><a class="header" href="#sound-control">sound control</a></h2>
 <p>we can change sound volume using to <code>99%</code> by:</p>
-<pre><code>$ pactl set-sink-volume 0 99%
+<pre><code class="language-bash">pactl set-sink-volume 0 99%
 </code></pre>
 <h1 id="old-2"><a class="header" href="#old-2">OLD 2</a></h1>
 <hr>
@@ -228,13 +227,13 @@ options snd_hda_intel index=1
 <ul>
 <li>check <code>alsamixer</code></li>
 </ul>
-<pre><code>$ alsamixser
+<pre><code class="language-bash">$ alsamixser
 </code></pre>
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./alsamixer.png" alt="image"><span class="img-wrapper"><img src="./alsamixer.png" alt="image"></span></label></p>
 <ul>
 <li>choose <code>builting audio</code> that not <code>off</code> in <code>pulsemixer</code></li>
 </ul>
-<pre><code>$ pulsemixer
+<pre><code class="language-bash">$ pulsemixer
 </code></pre>
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./pulsemixer.png" alt="image"><span class="img-wrapper"><img src="./pulsemixer.png" alt="image"></span></label></p>
 <h1 id="unmout-all-but-danger"><a class="header" href="#unmout-all-but-danger">unmout all, But danger</a></h1>

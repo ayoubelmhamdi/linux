@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-c982f4d5.js"></script>
+        <script src="toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,8 +180,7 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="suckless-tools"><a class="header" href="#suckless-tools">Suckless Tools</a></h1>
+                        <h1 id="suckless-tools"><a class="header" href="#suckless-tools">Suckless Tools</a></h1>
 <hr>
 <ul>
 <li><a href="./suckless-void.html">Void</a></li>
@@ -201,12 +200,12 @@
 <pre><code class="language-bash">fc-list --format="%{family}\n" | cut -d , -f 1 | sort | uniq
 </code></pre>
 <h3 id="how-to-kill-script-that-run-xsetroot-statusbar"><a class="header" href="#how-to-kill-script-that-run-xsetroot-statusbar">How to kill script that run xsetroot (statusbar)</a></h3>
-<pre><code>kill -9 \$(ps -ef|awk  '/ayoubStatusBar/{print \$2}'|grep -v "awk"|awk 'NR==1')  
+<pre><code class="language-bash">kill -9 \$(ps -ef|awk  '/ayoubStatusBar/{print \$2}'|grep -v "awk"|awk 'NR==1')  
 # or
 pkill ayoubStatusBar
 </code></pre>
 <p><code>print \$2</code> because we have pid1 and pid2</p>
-<pre><code>pid1 myscript.sh  
+<pre><code class="language-bash">pid1 myscript.sh  
 pid2 root that run this scripte : like terminal , or father of this scripts  
 </code></pre>
 <p><code>grep -v</code> for ignore process that grep for my script<br><code>NR==2</code> for return only 1er ligne : that pipe from last pipe<br><code>ps -ef</code> grep(find) pid-pross by origin script : htop not view origin scripts always</p>

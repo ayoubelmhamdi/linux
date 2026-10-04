@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-69f0c3be.js";
+            window.path_to_searchindex_js = "../searchindex-023455f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c982f4d5.js"></script>
+        <script src="../toc-f15ba4e8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,11 +180,10 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="wifi-on-linux"><a class="header" href="#wifi-on-linux">Wifi on Linux</a></h1>
+                        <h1 id="wifi-on-linux"><a class="header" href="#wifi-on-linux">Wifi on Linux</a></h1>
 <hr>
 <h3 id="get-back-wlan0-name"><a class="header" href="#get-back-wlan0-name">get back Wlan0 name</a></h3>
-<pre><code class="language-console"># cat /etc/udev/rules.d/80-net-name-slot.rules
+<pre><code class="language-bash"># cat /etc/udev/rules.d/80-net-name-slot.rules
 
 net.ifnames=0
 </code></pre>
@@ -204,7 +203,7 @@ net.ifnames=0
 <pre><code class="language-bash"># iwlist wlan0 scan
 </code></pre>
 <h2 id="get-signal-and-name-of-ssid"><a class="header" href="#get-signal-and-name-of-ssid">get Signal and name of <code>SSID</code></a></h2>
-<pre><code># iw dev wlan0 link
+<pre><code class="language-bash"># iw dev wlan0 link
 </code></pre>
 <h3 id="ad-hoc"><a class="header" href="#ad-hoc">ad-hoc</a></h3>
 <p>Check if your <code>Wifi</code> is supported by `AP``</p>
