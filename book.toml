@@ -4,8 +4,8 @@ title = "Linux docs"
 language = "en"
 
 [build]
+build-dir = "/rand/linux-mdbook/book///"
 create-missing = false
-build-dir = "/rand/linux-mdbook/"
 
 [output.html]
 site-url = "/linux/"
