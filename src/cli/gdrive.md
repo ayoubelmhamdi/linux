@@ -22,10 +22,10 @@ if you login with multi `emails`, should disconnected or use `private-browser`
 
 ### download
 to download this link
-```
+```text
 https://drive.google.com/u/1/uc?id=1z7RhJgZDDONsrv2mSoHxlkN3XBcvGc5T&export=download
 ```
 use
-```
+```bash
 gdrive download 1z7RhJgZDDONsrv2mSoHxlkN3XBcvGc5T
 ```

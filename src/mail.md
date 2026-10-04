@@ -6,7 +6,7 @@ This guide will walk you through setting up NeoMutt with Gmail using OAuth2 auth
 
 First, install the necessary dependencies:
 
-```
+```bash
 sudo xbps-install -Sy cyrus-sasl-xoauth2 neomutt curl isync msmtp pass pam-gnupg notmuch abook urlview mpop
 ```
 
@@ -14,7 +14,7 @@ sudo xbps-install -Sy cyrus-sasl-xoauth2 neomutt curl isync msmtp pass pam-gnupg
 
 1. Clone and install mutt-wizard:
 
-```
+```bash
 git clone https://github.com/lukesmithxyz/mutt-wizard
 cd mutt-wizard
 sudo make install
@@ -22,13 +22,13 @@ sudo make install
 
 2. Generate a GPG key:
 
-```
+```bash
 gpg --full-generate-key
 ```
 
 3. Initialize pass with your email:
 
-```
+```bash
 pass init ayoub@gmail.com
 ```
 
@@ -36,7 +36,7 @@ pass init ayoub@gmail.com
 
 1. Run mutt-wizard to add your Gmail account:
 
-```
+```bash
 mw -a ayoub@gmail.com
 ```
 
@@ -46,7 +46,7 @@ mw -a ayoub@gmail.com
 
 3. When prompted by mutt-wizard, enter the generated app password:
 you will see a key like this:
-```
+```text
 vJkl jtjk weqc rwzi
 ```
 
@@ -54,7 +54,7 @@ vJkl jtjk weqc rwzi
 
 If you enter an incorrect password, you may need to remove the stored password:
 
-```
+```bash
 rm /home/$USER/.password-store -rf
 ```
 

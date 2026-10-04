@@ -84,7 +84,7 @@ autologin-session=dwm
 
 # FRESH VOID SERVICES
 what services runs and maybe help if we remove them accidentally.
-```
+```bash
 $ ls /var/service         
 acpid -> /etc/sv/acpid/
 agetty-tty2 -> /etc/sv/agetty-tty2/

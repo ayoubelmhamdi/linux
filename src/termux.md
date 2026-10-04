@@ -60,7 +60,7 @@ patchelf --set-rpath '$PREFIX/lib' ./bin
 
 This is ABI, not paths.
 
-```
+```text
 ET_EXEC → dead
 ET_DYN  → maybe works
 ```

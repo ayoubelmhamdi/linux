@@ -46,7 +46,7 @@ git diff --name-only  --diff-filter=A 65833e30..c3098905
 ```
 
 - submodule
-```
+```bash
 git clone --recurse-submodules -j8 git://github.com/foo/bar.git
 git submodule update --init --recursive
 ```

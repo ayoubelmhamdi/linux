@@ -8,11 +8,11 @@ xbps-install -Sy webkit2gtk-devel gcr-devel
 ```
 # Dwm in void-linux
 # xorg
-```
+```bash
 sudo xbps-install -y xinit xauth xorg-server xorg-minimal
 ```
 
 ### Dependencies needed for compile dwm in `void linux` from scratch is:
-```
+```bash
 sudo xbps-install -y base-devel libX11-devel libXft-devel libXinerama-devel freetype-devel fontconfig-devel 
 ```

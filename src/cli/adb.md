@@ -16,7 +16,7 @@ droidcam-cli 127.0.0.1 4747
 
 # adb online only
 - get the serial using the usb cable for the first time
-```
+```bash
 \$ adb devices
 ```
 connect using the `ip` of my phone
@@ -30,7 +30,7 @@ connect using the `ip` of my phone
 adb connect 192.168.82.207:5555
 ```
 
-```
+```bash
 adb devices
 adb tcpip 5555
 adb connect $(resolveip):5555

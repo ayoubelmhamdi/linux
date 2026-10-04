@@ -7,12 +7,12 @@ To convert any binary from the `deb` format to `arch` format, should be extract 
 Or, you can use, this script bellow, that automated all things.
 
 - Arch
-```
+```text
 https://github.com/helixarch/debtap
 ```
 
 - Voidlinux
-```
+```text
 https://github.com/toluschr/xdeb
 ```
 

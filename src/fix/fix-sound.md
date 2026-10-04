@@ -21,7 +21,7 @@ sudo ln -sv /etc/sv/bluetoothd /var/service
 # OLD STEPS
 install [wireplump-elogind](http://) for shared object that need elogind and active `sv status elogind`
 active pipewire-pulse by uncomment this line
-```
+```text
     #{ path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
 ```
 
@@ -39,8 +39,8 @@ we have [pavucontrol](http://) and [helvum](http://)
 
 ## sound control
 we can change sound volume using to `99%` by:
-```
-$ pactl set-sink-volume 0 99%
+```bash
+pactl set-sink-volume 0 99%
 ```
 
 # OLD 2
@@ -55,13 +55,13 @@ $ cat /etc/modprobe.d/default.conf
 options snd_hda_intel index=1
 ```
 - check `alsamixer`
-```
+```bash
 $ alsamixser
 ```
 ![image](./alsamixer.png)
 
 - choose `builting audio` that not `off` in `pulsemixer`
-```
+```bash
 $ pulsemixer
 ```
 ![image](./pulsemixer.png)

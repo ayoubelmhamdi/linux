@@ -14,7 +14,7 @@ to create an local website like `http://foo.com` from http.server `http://localh
 first, after runing my server using: `python3 -m http.server 8066` and check if `curl -I http://localhost:8066/` exit normally.
 we may add this line into `/etc/hosts`:
 
-```
+```text
 127.0.0.1   foo.com
 ```
 

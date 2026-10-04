@@ -20,13 +20,13 @@ fc-list --format="%{family}\n" | cut -d , -f 1 | sort | uniq
 ```
 
 ### How to kill script that run xsetroot (statusbar)  
-```
+```bash
 kill -9 \$(ps -ef|awk  '/ayoubStatusBar/{print \$2}'|grep -v "awk"|awk 'NR==1')  
 # or
 pkill ayoubStatusBar
 ```
 `print \$2` because we have pid1 and pid2  
-```
+```bash
 pid1 myscript.sh  
 pid2 root that run this scripte : like terminal , or father of this scripts  
 ```

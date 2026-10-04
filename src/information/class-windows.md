@@ -5,7 +5,7 @@ xprop | awk '
 	/^WM_NAME/{sub(/.* =/, "title:"); print}'
 ```
 output:
-```
+```text
 instance: "Navigator"
 class: "Firefox"
 title: "Mozilla Firefox

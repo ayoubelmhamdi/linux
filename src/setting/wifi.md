@@ -2,7 +2,7 @@
 -----------------
 
 ### get back Wlan0 name
-```console
+```bash
 # cat /etc/udev/rules.d/80-net-name-slot.rules
 
 net.ifnames=0
@@ -31,7 +31,7 @@ Or `ifconfig`:
 # iwlist wlan0 scan
 ```
 ## get Signal and name of `SSID`
-```
+```bash
 # iw dev wlan0 link
 ```
 ### ad-hoc

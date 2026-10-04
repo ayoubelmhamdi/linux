@@ -14,6 +14,6 @@ xbps-install -Sy webkit2gtk-devel gcr-devel
 
 ### Dependencies needed for compile dwm in `arch linux` from scratch is:
 
-```
+```bash
 sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig
 ```

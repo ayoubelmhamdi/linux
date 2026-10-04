@@ -1,7 +1,7 @@
 # How to switch bettwin layout arabic/us in keybroad
 
 you can use sxhkd 
-```
+```bash
 # keybroad layout us
 alt + shift + u
     setxkbmap us
@@ -12,7 +12,7 @@ alt + shift + a
     
 ```
 or use `Ctrl` and `Alt` 
-```
+```bash
 setxkbmap -layout us,ara -option grp:ctrl_alt_toggle
 ```
 # How remap key in lunix

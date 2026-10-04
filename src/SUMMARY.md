@@ -6,17 +6,22 @@
 
 - [Linux](./README.md)
   - [Driver](./driver.md)
+
   - [Suckless](./suckless.md)
     - [Ubuntu](./suckless-ubu.md)
     - [Void](./suckless-void.md)
     - [Arch](./suckless-arch.md)
-  - [Ubuntu](./ubuntu/README.md)
-    - [apt](./ubuntu/apt.md)
-  - [Arch](./arch/README.md)
-    - [Install Arch](./arch/arch-scratch.md)
+
   - [Void Linux](./void/README.md)
     - [Gpu](./void/gpu.md)
   - [Termux](./termux.md)
+
+  - [Ubuntu](./ubuntu/README.md)
+    - [apt](./ubuntu/apt.md)
+
+  - [Arch](./arch/README.md)
+    - [Install Arch](./arch/arch-scratch.md)
+  - [Gentoo](./gentoo/make.conf.md)
 
 #
 
@@ -43,6 +48,7 @@ ______________________________________________________________________
 ______________________________________________________________________
 
 - [network](./network.md)
+  - [Cert](./certificates.md)
 
 #
 ______________________________________________________________________

@@ -12,10 +12,10 @@ I got this zip
 ![image](https://user-images.githubusercontent.com/34358145/197432280-72df9430-21d9-4531-8641-7a3d620371aa.png)
 
 I have chosen `highlight.min.js`, by:
-```
+```bash
 cp ~/Download/highlight.min.js ~/mybook/theme/highlight.js
 ```
-```
+```text
 ├── book.toml
 ├── src
 │   ├── chapter_1.md
@@ -29,7 +29,7 @@ cp ~/Download/highlight.min.js ~/mybook/theme/highlight.js
 
 `highlight.css` can't load from original [highlightjs](https://github.com/highlightjs/highlight.js/tree/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles) repo automatic
 
-```
+```bash
 wget https://github.com/highlightjs/highlight.js/blob/84719c17a51d7bb045f2df441b9c00f871f7c063/src/styles/base16/github.css \
  -O ~/mybook/theme/highlight.css
 ```
