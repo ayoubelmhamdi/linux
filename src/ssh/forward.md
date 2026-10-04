@@ -1,26 +1,17 @@
-From a local computer, we can typically log in via SSH using the following
-command: `ssh -p 8022 server_user@server_ip`
-
-Next, run `python3 -m http.server -d ./src 8080` on the server.
-
-But, directly accessing the server's content through
-`http://serverip:server_port` may not work due to security restrictions. We can
-overcome this using SSH tunneling.
-
-For instance, on Android, we must first choose a valid port (e.g., 8080) for
-the server (ports like 3000 and 80 may not be valid). After running the server
-(e.g., mdbook, Python), the content will not be immediately accessible locally.
-We need to establish a forward tunnel to the server, mapping the server's port
-to a local port (e.g., 3001).
-
+# forward localhost from server to Termux.
+get Termux local ips (even tailsall).
 ```bash
-ssh -p 8022 -L 3001:localhost:8080 -L 3002:localhost:8081 server_user@server_ip
-# OR
-ssh -p 8022 -L 8080:localhost:8080 -L 8081:localhost:8081 server_user@server_ip
+ifconfig 2> /dev/null | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '[0-9.]*'
+192.168.1.23
 ```
 
-Now, the server's content will be accessible locally via
-`http://127.0.0.1:3001/` or `http://127.0.0.1:8080/`.
 
-Therefore, to ensure proper website functionality, we must identify an
-available port on the server and utilize SSH tunnel forwarding. 
+run the `gradio`/`http_server/...` on port `7861` or any port allowed on server.
+
+on `Termux`: we just need to run:
+
+```bash
+ssh -p 22 -L 7861:localhost:7861 user@ip
+```
+
+use tailscall if your router not allow ssh port 22, or for use static ip.
