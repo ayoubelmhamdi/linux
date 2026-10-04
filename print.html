@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-023455f9.js";
+            window.path_to_searchindex_js = "searchindex-158672ec.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-f15ba4e8.js"></script>
+        <script src="toc-6f707901.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1287,6 +1287,40 @@ additional-css = ["./theme/highlight.css"]
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="xbackligh-and-sceen-saver"><a href="#xbackligh-and-sceen-saver" class="header">xbackligh and sceen saver</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="run-bunch-of-commands-and-wrap-own-outputs"><a class="header" href="#run-bunch-of-commands-and-wrap-own-outputs">Run bunch of commands and wrap own outputs.</a></h1>
+<pre><code class="language-bash">#!/bin/bash
+
+log_file="${1:-}"
+
+if [ -n "$log_file" ];then
+    output_file="$log_file"
+else
+    output_file="$(mktemp)"
+fi
+
+cat /dev/null &gt; "$output_file"
+
+trap_fn(){
+    if [ -n "$log_file" ];then
+        cat "$output_file" &gt; "$log_file"
+        rm $output_file
+    else
+        cat "$output_file" 
+    fi
+}
+trap 'trap_fn' INT EXIT
+
+
+run() {
+    printf '$ %s\n' "$*" | tee -a "$output_file"
+    "$@" &gt;&gt;"$output_file" 2&gt;&amp;1
+    printf '\n' | tee -a "$output_file"
+}
+
+# run ls -al
+# run grep 'pattern' /path/
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="setting"><a href="#setting" class="header">SETTING</a></h1>
 <div style="break-before: page; page-break-before: always;"></div>
