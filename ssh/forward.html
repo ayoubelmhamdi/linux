@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-158672ec.js";
+            window.path_to_searchindex_js = "../searchindex-9865463d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6f707901.js"></script>
@@ -180,25 +180,16 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <p>From a local computer, we can typically log in via SSH using the following
-command: <code>ssh -p 8022 server_user@server_ip</code></p>
-<p>Next, run <code>python3 -m http.server -d ./src 8080</code> on the server.</p>
-<p>But, directly accessing the server’s content through
-<code>http://serverip:server_port</code> may not work due to security restrictions. We can
-overcome this using SSH tunneling.</p>
-<p>For instance, on Android, we must first choose a valid port (e.g., 8080) for
-the server (ports like 3000 and 80 may not be valid). After running the server
-(e.g., mdbook, Python), the content will not be immediately accessible locally.
-We need to establish a forward tunnel to the server, mapping the server’s port
-to a local port (e.g., 3001).</p>
-<pre><code class="language-bash">ssh -p 8022 -L 3001:localhost:8080 -L 3002:localhost:8081 server_user@server_ip
-# OR
-ssh -p 8022 -L 8080:localhost:8080 -L 8081:localhost:8081 server_user@server_ip
+                        <h1 id="forward-localhost-from-server-to-termux"><a class="header" href="#forward-localhost-from-server-to-termux">forward localhost from server to Termux.</a></h1>
+<p>get Termux local ips (even tailsall).</p>
+<pre><code class="language-bash">ifconfig 2&gt; /dev/null | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '[0-9.]*'
+192.168.1.23
 </code></pre>
-<p>Now, the server’s content will be accessible locally via
-<code>http://127.0.0.1:3001/</code> or <code>http://127.0.0.1:8080/</code>.</p>
-<p>Therefore, to ensure proper website functionality, we must identify an
-available port on the server and utilize SSH tunnel forwarding.</p>
+<p>run the <code>gradio</code>/<code>http_server/...</code> on port <code>7861</code> or any port allowed on server.</p>
+<p>on <code>Termux</code>: we just need to run:</p>
+<pre><code class="language-bash">ssh -p 22 -L 7861:localhost:7861 user@ip
+</code></pre>
+<p>use tailscall if your router not allow ssh port 22, or for use static ip.</p>
 
                     </main>
 
