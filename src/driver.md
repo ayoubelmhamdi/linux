@@ -1,5 +1,29 @@
 # Driver
 
+## FIX WIFI driver wl Connexion
+if we succeful install the nonfree `broadcom-wl-dkms` pkg and wifi not work, maybe the wl not loaded from `broadcom`.
+```bash
+# Do not let anything load wl automatically (e.g. the initramfs's udev).
+blacklist wl
+
+# black list this: not workon my pc too.
+blacklist b43
+blacklist b43legacy
+blacklist ssb
+blacklist bcm43xx
+blacklist bcma
+blacklist brcm80211
+blacklist brcmfmac
+blacklist brcmsmac
+```
+- `/etc/modules-load.d/wl.conf` should be empty.
+- `/usr/lib/modules-load.d/wl.conf`:
+```bash
+wl
+```
+
+# general aproach
+
 ### list the kernel modules:
 this list shown the the name of kernel module for the used kernel driver.
 ```bash
