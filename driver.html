@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9865463d.js";
+            window.path_to_searchindex_js = "searchindex-15016f7d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6f707901.js"></script>
@@ -181,6 +181,28 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="driver"><a class="header" href="#driver">Driver</a></h1>
+<h2 id="fix-wifi-driver-wl-connexion"><a class="header" href="#fix-wifi-driver-wl-connexion">FIX WIFI driver wl Connexion</a></h2>
+<p>if we succeful install the nonfree <code>broadcom-wl-dkms</code> pkg and wifi not work, maybe the wl not loaded from <code>broadcom</code>.</p>
+<pre><code class="language-bash"># Do not let anything load wl automatically (e.g. the initramfs's udev).
+blacklist wl
+
+# black list this: not workon my pc too.
+blacklist b43
+blacklist b43legacy
+blacklist ssb
+blacklist bcm43xx
+blacklist bcma
+blacklist brcm80211
+blacklist brcmfmac
+blacklist brcmsmac
+</code></pre>
+<ul>
+<li><code>/etc/modules-load.d/wl.conf</code> should be empty.</li>
+<li><code>/usr/lib/modules-load.d/wl.conf</code>:</li>
+</ul>
+<pre><code class="language-bash">wl
+</code></pre>
+<h1 id="general-aproach"><a class="header" href="#general-aproach">general aproach</a></h1>
 <h3 id="list-the-kernel-modules"><a class="header" href="#list-the-kernel-modules">list the kernel modules:</a></h3>
 <p>this list shown the the name of kernel module for the used kernel driver.</p>
 <pre><code class="language-bash">lspci -knn
