@@ -53,6 +53,8 @@ sudo sv restart lightdm
 
 
 ### elogind
+**NOTE:** make sure the pipewire run befor test anydesk(think's fable).
+
 - `elogind` could be essentiel to initialise `$XDG_RUNTIME_DIR` to `/run/user/1000`.
 - but `elogind` could be make contradiction with dwm when it's run `dbus-run-session dwm`.
 - use `agetty-tty1` service to start Xserver meant run a tty server (i do not know way this stupidity).

@@ -1,9 +1,29 @@
 # Driver
 
+# tailscaled
+```json
+  "inbounds": [{
+    "type": "tun",
+    "address": ["172.19.0.1/30"],
+    "auto_route": true,
+    "strict_route": true,
+    // "route_exclude_address": ["100.0.0.0/10"] // this maybe need to activate
+  }],
+```
+
+
 ## FIX WIFI driver wl Connexion
 if we succeful install the nonfree `broadcom-wl-dkms` pkg and wifi not work, maybe the wl not loaded from `broadcom`.
 ```bash
-# Do not let anything load wl automatically (e.g. the initramfs's udev).
+$ cat /usr/lib/modules-load.d/wl.conf
+wl
+$ cat /etc/modules-load.d/wl.conf
+# empty
+$ cat /etc/modprobe.d/blacklist.conf
+# empty
+$ cat /usr/lib/modprobe.d/wl.conf
+#### blacklist for maybe initramfs or udev loading ####
+#### Do not let anything load wl automatically (e.g. the initramfs's udev).
 blacklist wl
 
 # black list this: not workon my pc too.
@@ -15,11 +35,20 @@ blacklist bcma
 blacklist brcm80211
 blacklist brcmfmac
 blacklist brcmsmac
-```
-- `/etc/modules-load.d/wl.conf` should be empty.
-- `/usr/lib/modules-load.d/wl.conf`:
-```bash
-wl
+# blacklist cfg80211 # do not prevent this module, because it's needed with wl.ko driver.
+
+$ cat /usr/lib/modprobe.d/blacklist.conf
+blacklist cirrusfb
+blacklist hgafb
+blacklist i8xx_tco
+blacklist intelfb
+blacklist kyrofb
+blacklist neofb
+blacklist nvidiafb
+blacklist radeonfb
+blacklist rivafb
+blacklist tridentfb
+blacklist vga16fb
 ```
 
 # general aproach
